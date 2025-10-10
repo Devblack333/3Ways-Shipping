@@ -93,6 +93,20 @@ function doModalLogin(){
   const name = document.getElementById('modalName').value.trim();
   if(!name) return alert('الرجاء إدخال الاسم');
   localStorage.setItem('aw_ar_user', name);
-  document.getElementById('loginModal').classList.add('hidden');
-  location.reload();
+
+  // إخفاء المودال فورًا
+  const modal = document.getElementById('loginModal');
+  if(modal) modal.classList.add('hidden');
+
+  // إظهار صندوق التعليقات مباشرة بدون reload
+  const loginBox = document.getElementById('loginBox');
+  const commentArea = document.getElementById('commentArea');
+  if(loginBox) loginBox.style.display = 'none';
+  if(commentArea) commentArea.classList.remove('hidden');
+
+  // (اختياري) إعادة رسم التعليقات لو كانت دالة منفصلة متاحة
+  try { 
+    // إذا كان لديك دالة renderComments في نفس الملف، استدعِها هنا:
+    if(typeof renderComments === 'function') renderComments();
+  } catch(e){ console.warn(e); }
 }
