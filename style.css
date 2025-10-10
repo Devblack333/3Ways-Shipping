@@ -54,3 +54,17 @@ body{margin:0;font-family:'Tajawal',system-ui,Arial;background:linear-gradient(1
 /* small helpers */
 .center{display:flex;align-items:center;justify-content:center}
 .hidden{display:none}
+
+/* إخفاء قوي */
+.hidden { display: none !important; }
+
+/* ستايل النافذة (المودال) */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2,6,23,0.5);
+  z-index: 200;
+}
