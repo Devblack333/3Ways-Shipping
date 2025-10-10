@@ -1,79 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlobalShip Logistics</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AllWays Shipping Company — Home</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>GlobalShip Logistics</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact Us</a>
+<header class="header">
+  <div class="container" style="display:flex;align-items:center;gap:12px">
+    <div class="logo">AllWays Shipping Company</div>
+    <nav class="nav">
+      <a href="index.html" style="color:white;text-decoration:none">Home</a>
+      <a href="about.html" style="color:white;text-decoration:none">About</a>
+      <a href="services.html" style="color:white;text-decoration:none">Services</a>
+      <a href="contact.html" style="color:white;text-decoration:none">Contact</a>
     </nav>
-  </header>
-
-  <section id="home">
-    <h2>Welcome to GlobalShip Logistics</h2>
-    <p>
-      GlobalShip Logistics is your trusted worldwide shipping partner. We deliver packages, containers, and cargo across all continents with reliability and speed.
-    </p>
-
-    <div class="comment-section">
-      <h3>Comments Wall</h3>
-      <div id="loginBox" class="login-box">
-        <p><strong>Sign in to post a comment</strong></p>
-        <input type="text" id="username" placeholder="Enter your name" />
-        <button id="loginBtn">Sign In</button>
-      </div>
-
-      <div id="commentBox" class="hidden">
-        <textarea id="commentInput" placeholder="Write your comment..."></textarea><br>
-        <button id="postBtn">Post Comment</button>
-      </div>
-
-      <div id="commentsList"></div>
+    <div class="top-right">
+      <button class="btn" onclick="location.href='contact.html'">Contact</button>
     </div>
-  </section>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      We are a leading global logistics company with years of experience in freight, e-commerce delivery, and cargo management.
-    </p>
-    <p>
-      Our mission is to connect people and businesses worldwide with dependable and affordable logistics solutions.
-    </p>
-  </section>
-
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>🌍 International Air Freight</li>
-      <li>🚢 Sea Cargo & Container Shipping</li>
-      <li>🚚 Express Door-to-Door Delivery</li>
-      <li>📦 E-Commerce & Parcel Solutions</li>
-      <li>🧾 Customs Clearance & Documentation</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>📞 <strong id="phone">+20 123 456 7890</strong><br>📧 support@globalship.com</p>
-  </section>
-
-  <footer>© 2025 GlobalShip Logistics. All rights reserved.</footer>
-
-  <div class="socials">
-    <a id="wa" href="https://wa.me/201234567890" target="_blank" title="WhatsApp">💬</a>
-    <a id="fb" href="https://facebook.com" target="_blank" title="Facebook">📘</a>
-    <a id="tel" href="tel:+201234567890" title="Call us">📞</a>
   </div>
+</header>
 
-  <script src="script.js"></script>
+<main class="container">
+  <section class="card section">
+    <h1>Welcome to AllWays Shipping Company</h1>
+    <p class="lead">Reliable global shipping — express parcels, sea freight, and custom logistics tailored to your needs.</p>
+    <p>We move what matters. Fast, safe, and trackable.</p>
+  </section>
+
+  <section class="card section">
+    <h2>Comments Wall</h2>
+    <p class="muted">Sign in with your name to post a comment. Comments are saved in your browser (localStorage).</p>
+
+    <div id="loginBox" class="login-box">
+      <label><strong>Enter your name to sign in</strong></label>
+      <div class="row" style="margin-top:8px">
+        <input id="username" placeholder="Your name" />
+        <button id="loginBtn" class="btn">Sign In</button>
+      </div>
+    </div>
+
+    <div id="commentArea" class="hidden">
+      <textarea id="commentInput" placeholder="Write your comment..."></textarea>
+      <div style="margin-top:8px" class="row">
+        <button id="postBtn" class="btn">Post Comment</button>
+        <button id="signOutBtn" class="btn" style="background:#6b7280">Sign Out</button>
+      </div>
+    </div>
+
+    <div id="commentsList" style="margin-top:12px"></div>
+  </section>
+</main>
+<footer class="footer">
+  © AllWays Shipping Company — Built for demo. Replace contact details in <code>script.js</code>
+</footer>
+
+
+<div class="socials">
+  <a id="wa" title="WhatsApp" target="_blank">💬</a>
+  <a id="fb" title="Facebook" target="_blank">📘</a>
+  <a id="tel" title="Call" href="tel:+20 123 456 7890">📞</a>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
