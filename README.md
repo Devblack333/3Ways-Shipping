@@ -1,5 +1,14 @@
-# AllWays Shipping Company - Demo site
+# شركة الشحن دائمًا - موقع تجريبي بالعربي
 
-This is a simple multi-page static demo for AllWays Shipping Company. Edit `script.js` to change default contact info, or set values in localStorage.
+موقع صفحات ثابتة مع صور من Unsplash، تأثيرات عند المرور، ونظام تعليقات يعمل محليًا عبر localStorage.
 
-To publish: upload these files to a GitHub repo and enable GitHub Pages.
+لتغيير بيانات الاتصال عبر المتصفح:
+
+```js
+localStorage.setItem('site_phone','+20 111 222 3333');
+localStorage.setItem('site_whatsapp','+201112223333');
+localStorage.setItem('site_facebook','https://facebook.com/yourpage');
+location.reload();
+```
+
+نزّل الملفات وارفعها إلى مستودع GitHub وفعّل Pages لنشرها.

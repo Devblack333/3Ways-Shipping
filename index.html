@@ -1,65 +1,107 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AllWays Shipping Company — Home</title>
-<link rel="stylesheet" href="style.css" />
-</head>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>شركة الشحن دائمًا - الرئيسية</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <header class="header">
   <div class="container" style="display:flex;align-items:center;gap:12px">
-    <div class="logo">AllWays Shipping Company</div>
-    <nav class="nav">
-      <a href="index.html" style="color:white;text-decoration:none">Home</a>
-      <a href="about.html" style="color:white;text-decoration:none">About</a>
-      <a href="services.html" style="color:white;text-decoration:none">Services</a>
-      <a href="contact.html" style="color:white;text-decoration:none">Contact</a>
+    <div class="logo">شركة الشحن دائمًا</div>
+    <nav class="nav" style="margin-right:12px">
+      <a href="index.html" style="color:white;text-decoration:none">الرئيسية</a>
+      <a href="about.html" style="color:white;text-decoration:none">من نحن</a>
+      <a href="services.html" style="color:white;text-decoration:none">خدماتنا</a>
+      <a href="contact.html" style="color:white;text-decoration:none">اتصل بنا</a>
     </nav>
     <div class="top-right">
-      <button class="btn" onclick="location.href='contact.html'">Contact</button>
+      <button class="btn" onclick="document.getElementById('loginModal').classList.remove('hidden')">تسجيل</button>
     </div>
   </div>
 </header>
 
 <main class="container">
-  <section class="card section">
-    <h1>Welcome to AllWays Shipping Company</h1>
-    <p class="lead">Reliable global shipping — express parcels, sea freight, and custom logistics tailored to your needs.</p>
-    <p>We move what matters. Fast, safe, and trackable.</p>
+  <section class="hero card">
+    <div class="overlay">
+      <h1 style="margin:0">شركة الشحن دائمًا - أفضل خدمات الشحن العالمية</h1>
+      <p class="lead">نقدّم خدمات الشحن الجوي، البحري، والتوصيل السريع مع تتبع كامل وشبكة شراكات دولية.</p>
+      <div style="margin-top:12px"><button class="btn" onclick="location.href='services.html'">عرض الخدمات</button></div>
+    </div>
+    <div class="center" style="min-width:320px;color:white">
+      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=60" style="width:320px;height:200px;object-fit:cover;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.2)">
+    </div>
   </section>
 
-  <section class="card section">
-    <h2>Comments Wall</h2>
-    <p class="muted">Sign in with your name to post a comment. Comments are saved in your browser (localStorage).</p>
+  <section class="section">
+    <h2 style="color:var(--blue)">لماذا نحن؟</h2>
+    <div class="why-us">
+      <div class="why-card card">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60" alt="سرعة">
+        <div class="txt"><h3>سرعة</h3><p>توصيل سريع ومواعيد دقيقة.</p></div>
+      </div>
+      <div class="why-card card">
+        <img src="https://images.unsplash.com/photo-1556740765-2f6b4a0b4a4e?auto=format&fit=crop&w=800&q=60" alt="أمان">
+        <div class="txt"><h3>أمان</h3><p>تأمين للشحنات وتتبع مستمر.</p></div>
+      </div>
+      <div class="why-card card">
+        <img src="https://images.unsplash.com/photo-1526676031502-9f1b7f3c4f3a?auto=format&fit=crop&w=800&q=60" alt="تغطية">
+        <div class="txt"><h3>تغطية عالمية</h3><p>شبكة شحن على مستوى العالم.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section card comments-wrap">
+    <h2 style="color:var(--blue)">آراء العملاء</h2>
+    <p class="muted">عرض أحدث التعليقات — يمكنك تسجيل الدخول ونشر تعليقك.</p>
 
     <div id="loginBox" class="login-box">
-      <label><strong>Enter your name to sign in</strong></label>
+      <label><strong>أدخل اسمك للتسجيل</strong></label>
       <div class="row" style="margin-top:8px">
-        <input id="username" placeholder="Your name" />
-        <button id="loginBtn" class="btn">Sign In</button>
+        <input id="username" placeholder="اسمك" />
+        <button id="loginBtn" class="btn">تسجيل</button>
       </div>
     </div>
 
     <div id="commentArea" class="hidden">
-      <textarea id="commentInput" placeholder="Write your comment..."></textarea>
+      <textarea id="commentInput" placeholder="اكتب تعليقك..."></textarea>
       <div style="margin-top:8px" class="row">
-        <button id="postBtn" class="btn">Post Comment</button>
-        <button id="signOutBtn" class="btn" style="background:#6b7280">Sign Out</button>
+        <button id="postBtn" class="btn">نشر</button>
+        <button id="signOutBtn" class="btn" style="background:#6b7280">تسجيل خروج</button>
       </div>
     </div>
 
-    <div id="commentsList" style="margin-top:12px"></div>
+    <div class="comment-box">
+      <div class="comments-scroll" id="commentsList">
+        <!-- comments rendered here; show few and scroll -->
+      </div>
+    </div>
   </section>
+
 </main>
 <footer class="footer">
-  © AllWays Shipping Company — Built for demo. Replace contact details in <code>script.js</code>
+  © شركة الشحن دائمًا — جميع الحقوق محفوظة
 </footer>
 
 
-<div class="socials">
-  <a id="wa" title="WhatsApp" target="_blank">💬</a>
-  <a id="fb" title="Facebook" target="_blank">📘</a>
-  <a id="tel" title="Call" href="tel:+20 123 456 7890">📞</a>
+<div class="social-fixed">
+  <a id="wa" title="واتساب" target="_blank">💬</a>
+  <a id="fb" title="فيسبوك" target="_blank">📘</a>
+  <a id="tel" title="اتصال" href="tel:+20 123 456 7890">📞</a>
+</div>
+
+<div class="contact-bar">
+  <div>
+    <div style="font-size:16px;font-weight:700">تواصل معنا الآن</div>
+    <div class="small">متاح 24/7</div>
+  </div>
+  <div class="phone">+20 123 456 7890</div>
+  <div><button class="btn" onclick="location.href='contact.html'">اتصل / راسل</button></div>
+</div>
+
+<!-- login modal (hidden) -->
+<div id="loginModal" class="hidden" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.5);z-index:200">
+  <div class="card" style="width:320px">
+    <h3>التسجيل</h3>
+    <input id="modalName" placeholder="الاسم" style="margin-top:8px" />
+    <div style="margin-top:8px"><button class="btn" onclick="doModalLogin()">تسجيل</button></div>
+  </div>
 </div>
 
 <script src="script.js"></script>

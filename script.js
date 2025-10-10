@@ -1,28 +1,33 @@
-// Shared script for AllWays Shipping Company demo site
-// Edit CONTACT defaults below or update via localStorage in the browser
-const CONTACT = {"phone": "+20 123 456 7890", "whatsapp": "+201234567890", "facebook": "https://facebook.com/"};
 
-// Apply contact links on page load
-document.addEventListener('DOMContentLoaded', ()=>{
+// Arabic AllWays site script with comments using localStorage and contact links (Unsplash images used)
+const CONTACT = {
+  phone: "+20 123 456 7890",
+  whatsapp: "+201234567890",
+  facebook: "https://facebook.com/"
+};
+
+function applyContacts(){
   try{
     const phoneEl = document.getElementById('phone');
-    const wa = document.getElementById('wa');
-    const fb = document.getElementById('fb');
-    const tel = document.getElementById('tel');
-    const waBtn = document.getElementById('waBtn');
-
+    const waEls = document.querySelectorAll('#wa, #waBtn');
+    const fbEls = document.querySelectorAll('#fb, #fbBtn');
+    const telEls = document.querySelectorAll('#tel');
     const phone = localStorage.getItem('site_phone') || CONTACT.phone;
     const whatsapp = localStorage.getItem('site_whatsapp') || CONTACT.whatsapp;
     const facebook = localStorage.getItem('site_facebook') || CONTACT.facebook;
-
     if(phoneEl) phoneEl.textContent = phone;
-    if(wa) wa.href = 'https://wa.me/' + whatsapp.replace(/\D/g,'');
-    if(fb) fb.href = facebook;
-    if(tel) tel.href = 'tel:' + phone.replace(/\s/g,'');
-    if(waBtn) waBtn.href = 'https://wa.me/' + whatsapp.replace(/\D/g,'');
-  }catch(e){ console.warn(e); }
+    waEls.forEach(e=>e.href = 'https://wa.me/' + whatsapp.replace(/\D/g,''));
+    fbEls.forEach(e=>e.href = facebook);
+    telEls.forEach(e=>e.href = 'tel:' + phone.replace(/\s/g,''));
+  }catch(e){
+    console.warn(e);
+  }
+}
 
-  // Initialize comment wall if on index.html
+document.addEventListener('DOMContentLoaded', ()=>{
+  applyContacts();
+
+  // Comment wall on index
   try{
     const loginBox = document.getElementById('loginBox');
     const commentArea = document.getElementById('commentArea');
@@ -32,22 +37,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const commentInput = document.getElementById('commentInput');
     const signOutBtn = document.getElementById('signOutBtn');
     const commentsList = document.getElementById('commentsList');
+    if(!commentsList) return; // not on home
 
-    if(!commentsList) return; // Not on home page
-
-    let user = localStorage.getItem('aw_user') || null;
-    let comments = JSON.parse(localStorage.getItem('aw_comments') || '[]');
+    let user = localStorage.getItem('aw_ar_user') || null;
+    let comments = JSON.parse(localStorage.getItem('aw_ar_comments') || '[]');
 
     function escapeHtml(s){ return String(s).replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]); }
-
     function renderComments(){
-      if(!commentsList) return;
       commentsList.innerHTML = '';
-      if(comments.length === 0){ commentsList.innerHTML = '<p class="muted">No comments yet — be the first!</p>'; return; }
+      if(comments.length === 0){ commentsList.innerHTML = '<p class="muted">لا توجد تعليقات بعد — كن الأول!</p>'; return; }
+      // show few comments and allow scroll (comments container is scrollable)
       comments.slice().reverse().forEach(c=>{
         const div = document.createElement('div');
         div.className = 'comment';
-        div.innerHTML = `<strong>${escapeHtml(c.name)}</strong><div style="margin-top:6px">${escapeHtml(c.text)}</div><div class='muted' style='font-size:12px;margin-top:6px'>Posted: ${new Date(c.created).toLocaleString()}</div>`;
+        div.innerHTML = `<strong>${escapeHtml(c.name)}</strong><div style="margin-top:6px">${escapeHtml(c.text)}</div><div class='muted' style='font-size:12px;margin-top:6px'>${new Date(c.created).toLocaleString()}</div>`;
         commentsList.appendChild(div);
       });
     }
@@ -55,35 +58,41 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(user){ loginBox.style.display='none'; commentArea.classList.remove('hidden'); }
     else{ commentArea.classList.add('hidden'); loginBox.style.display='block'; }
 
-    loginBtn.addEventListener('click', ()=>{
+    loginBtn && loginBtn.addEventListener('click', ()=>{
       const name = usernameInput.value.trim();
-      if(!name) return alert('Please enter your name to sign in.');
-      localStorage.setItem('aw_user', name);
+      if(!name) return alert('الرجاء إدخال اسمك للتسجيل.');
+      localStorage.setItem('aw_ar_user', name);
       user = name;
       loginBox.style.display='none';
       commentArea.classList.remove('hidden');
     });
 
     signOutBtn && signOutBtn.addEventListener('click', ()=>{
-      localStorage.removeItem('aw_user');
+      localStorage.removeItem('aw_ar_user');
       user = null;
       loginBox.style.display='block';
       commentArea.classList.add('hidden');
     });
 
-    postBtn.addEventListener('click', ()=>{
+    postBtn && postBtn.addEventListener('click', ()=>{
       const text = commentInput.value.trim();
-      if(!text) return alert('Please write a comment.');
+      if(!text) return alert('الرجاء كتابة تعليق.');
       const newComment = { name: user, text, created: new Date().toISOString() };
       comments.push(newComment);
-      localStorage.setItem('aw_comments', JSON.stringify(comments));
+      localStorage.setItem('aw_ar_comments', JSON.stringify(comments));
       commentInput.value = '';
       renderComments();
     });
 
     renderComments();
   }catch(e){ console.warn('comments init error', e); }
+
 });
 
-// Utility: developers can set contact info in browser console like:
-// localStorage.setItem('site_phone','+20 111 222 3333'); location.reload();
+function doModalLogin(){
+  const name = document.getElementById('modalName').value.trim();
+  if(!name) return alert('الرجاء إدخال الاسم');
+  localStorage.setItem('aw_ar_user', name);
+  document.getElementById('loginModal').classList.add('hidden');
+  location.reload();
+}
