@@ -1,0 +1,61 @@
+:root {
+  --blue: #007bff;
+  --light: #f8fbff;
+  --text: #1a1a1a;
+  --gray: #777;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--light);
+  color: var(--text);
+}
+header {
+  background: var(--blue);
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 { margin: 0; font-size: 22px; }
+nav a { color: white; margin: 0 10px; text-decoration: none; }
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+h2 { color: var(--blue); }
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--blue);
+  color: white;
+}
+.socials {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.socials a {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+.comment { background: var(--light); border-radius: 8px; padding: 10px; margin: 8px 0; }
+.login-box, textarea, button, input { width: 100%; border-radius: 8px; margin: 5px 0; padding: 10px; }
+button { background: var(--blue); color: white; border: none; cursor: pointer; }
+button:hover { background: #005fcc; }
+.hidden { display: none; }
