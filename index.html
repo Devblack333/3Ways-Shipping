@@ -1,110 +1,162 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>شركة الشحن دائمًا - الرئيسية</title><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AllWays Shipping Company — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<header class="header">
-  <div class="container" style="display:flex;align-items:center;gap:12px">
-    <div class="logo">AllWays Shipping Company</div>
-    <nav class="nav" style="margin-right:12px">
-      <a href="index.html" style="color:white;text-decoration:none">الرئيسية</a>
-      <a href="about.html" style="color:white;text-decoration:none">من نحن</a>
-      <a href="services.html" style="color:white;text-decoration:none">خدماتنا</a>
-      <a href="contact.html" style="color:white;text-decoration:none">اتصل بنا</a>
+<header class="header" role="banner">
+  <div class="wrap">
+    <div class="logo" aria-label="AllWays logo">
+      <img src="logo.svg" alt="AllWays logo">
+      <div class="text" data-i18n="company_name">AllWays Shipping Company</div>
+    </div>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home" data-i18n="nav_home">Home</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
-    <div class="top-right">
-      <button class="btn" onclick="document.getElementById('loginModal').classList.remove('hidden')">تسجيل</button>
+
+    <div class="lang-toggle" role="navigation" aria-label="Language switch">
+      <button class="lang-btn" id="lang-en">EN</button>
+      <button class="lang-btn" id="lang-ar">AR</button>
+    </div>
+
+    <div class="header-actions">
+      <div id="gsiButton" class="gsi"></div>
+      <div id="userBadge" class="user-badge hidden" aria-hidden="true">
+        <img id="userPic" alt="User picture">
+        <span id="userName"></span>
+        <button id="signOut" class="btn secondary" aria-label="Sign out">Sign Out</button>
+      </div>
     </div>
   </div>
 </header>
 
-<main class="container">
-  <section class="hero card">
-    <div class="overlay">
-      <h1 style="margin:0">شركة الشحن دائمًا - أفضل خدمات الشحن العالمية</h1>
-      <p class="lead">نقدّم خدمات الشحن الجوي، البحري، والتوصيل السريع مع تتبع كامل وشبكة شراكات دولية.</p>
-      <div style="margin-top:12px"><button class="btn" onclick="location.href='services.html'">عرض الخدمات</button></div>
+<main class="container" id="pageContent">
+  <!-- HERO / HOME -->
+  <section id="home" class="hero">
+    <video id="heroVideo" class="hero-video" autoplay muted loop playsinline crossorigin="anonymous">
+      <!-- Placeholder sample video. Replace src later with your file. -->
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-left">
+      <h1 data-i18n="hero_title">AllWays Shipping Company</h1>
+      <p class="lead" data-i18n="hero_lead">Fast. Secure. Global. We deliver packages and freight across the world with reliable tracking and friendly service.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#services" data-i18n="btn_services">Our Services</a>
+        <a class="btn secondary" href="#contact" data-i18n="btn_contact">Contact Us</a>
+      </div>
     </div>
-    <div class="center" style="min-width:320px;color:white">
-      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=60" style="width:320px;height:200px;object-fit:cover;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.2)">
+    <div class="hero-right" aria-hidden="true">
+      <!-- decorative / reserved for future -->
     </div>
   </section>
 
-  <section class="section">
-    <h2 style="color:var(--blue)">لماذا نحن؟</h2>
+  <!-- ABOUT -->
+  <section id="about" class="card">
+    <h2 data-i18n="about_title">About AllWays Shipping Company</h2>
+    <p class="muted" data-i18n="about_p">We are a team of logistics professionals dedicated to safe and reliable shipments worldwide. Our mission is to simplify shipping for businesses and individuals.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="card">
+    <h2 data-i18n="services_title">Our Services</h2>
+    <div class="grid services-grid">
+      <div class="card svc">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60" alt="Air freight">
+        <h3 data-i18n="svc_air">Air Freight</h3>
+        <p data-i18n="svc_air_p">Fast international air shipping.</p>
+      </div>
+      <div class="card svc">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=60" alt="Sea freight">
+        <h3 data-i18n="svc_sea">Sea Freight</h3>
+        <p data-i18n="svc_sea_p">Cost-efficient container shipping.</p>
+      </div>
+      <div class="card svc">
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=60" alt="Ground delivery">
+        <h3 data-i18n="svc_ground">Ground Delivery</h3>
+        <p data-i18n="svc_ground_p">Local & last-mile delivery solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="card why-section">
+    <h2 data-i18n="why_title">Why Choose AllWays?</h2>
     <div class="why-us">
-      <div class="why-card card">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=60" alt="سرعة">
-        <div class="txt"><h3>سرعة</h3><p>توصيل سريع ومواعيد دقيقة.</p></div>
+      <div class="why-card">
+        <img src="https://images.unsplash.com/photo-1525909002-3d0e0b3d5e84?auto=format&fit=crop&w=1200&q=60" alt="">
+        <div class="txt">
+          <h3 data-i18n="why_speed">Speed</h3>
+          <p data-i18n="why_speed_p">Quick deliveries and on-time performance.</p>
+        </div>
       </div>
-      <div class="why-card card">
-        <img src="https://images.unsplash.com/photo-1556740765-2f6b4a0b4a4e?auto=format&fit=crop&w=800&q=60" alt="أمان">
-        <div class="txt"><h3>أمان</h3><p>تأمين للشحنات وتتبع مستمر.</p></div>
+      <div class="why-card">
+        <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1200&q=60" alt="">
+        <div class="txt">
+          <h3 data-i18n="why_security">Security</h3>
+          <p data-i18n="why_security_p">Insured shipping and real-time tracking.</p>
+        </div>
       </div>
-      <div class="why-card card">
-        <img src="https://images.unsplash.com/photo-1526676031502-9f1b7f3c4f3a?auto=format&fit=crop&w=800&q=60" alt="تغطية">
-        <div class="txt"><h3>تغطية عالمية</h3><p>شبكة شحن على مستوى العالم.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section card comments-wrap">
-    <h2 style="color:var(--blue)">آراء العملاء</h2>
-    <p class="muted">عرض أحدث التعليقات — يمكنك تسجيل الدخول ونشر تعليقك.</p>
-
-    <div id="loginBox" class="login-box">
-      <label><strong>أدخل اسمك للتسجيل</strong></label>
-      <div class="row" style="margin-top:8px">
-        <input id="username" placeholder="اسمك" />
-        <button id="loginBtn" class="btn">تسجيل</button>
-      </div>
-    </div>
-
-    <div id="commentArea" class="hidden">
-      <textarea id="commentInput" placeholder="اكتب تعليقك..."></textarea>
-      <div style="margin-top:8px" class="row">
-        <button id="postBtn" class="btn">نشر</button>
-        <button id="signOutBtn" class="btn" style="background:#6b7280">تسجيل خروج</button>
-      </div>
-    </div>
-
-    <div class="comment-box">
-      <div class="comments-scroll" id="commentsList">
-        <!-- comments rendered here; show few and scroll -->
+      <div class="why-card">
+        <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=60" alt="">
+        <div class="txt">
+          <h3 data-i18n="why_global">Global Reach</h3>
+          <p data-i18n="why_global_p">Partnerships across continents for smooth delivery.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- COMMENTS -->
+  <section class="card comments-wrap" id="commentsSection">
+    <h2 data-i18n="comments_title">Client Feedback</h2>
+    <p class="muted" data-i18n="comments_lead">Sign in with Google to post a comment. Recent comments are shown below.</p>
+
+    <div class="comment-post">
+      <textarea id="commentInput" placeholder="Write your comment..." rows="3" aria-label="Write your comment"></textarea>
+      <div class="comment-actions">
+        <button id="postBtn" class="btn" data-i18n="btn_post">Post Comment</button>
+        <button id="clearBtn" class="btn secondary">Clear</button>
+      </div>
+    </div>
+
+    <div id="commentsList" class="comments-scroll" aria-live="polite"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="card contact-section">
+    <div class="left">
+      <h2 data-i18n="contact_heading">Contact Us</h2>
+      <p class="muted" data-i18n="contact_info">Phone: +20 123 456 7890 — Email: support@allways.example</p>
+    </div>
+    <div class="right">
+      <a class="btn" href="https://wa.me/201234567890" target="_blank" rel="noopener" data-i18n="btn_whatsapp">Message on WhatsApp</a>
+      <a class="btn secondary" href="#" target="_blank" rel="noopener" data-i18n="btn_facebook">Visit our Facebook</a>
+    </div>
+  </section>
 </main>
-<footer class="footer">
-  © شركة الشحن دائمًا — جميع الحقوق محفوظة
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div data-i18n="footer_text">© AllWays Shipping Company — All rights reserved</div>
+  </div>
 </footer>
 
-
-<div class="social-fixed">
-  <a id="wa" title="واتساب" target="_blank">💬</a>
-  <a id="fb" title="فيسبوك" target="_blank">📘</a>
-  <a id="tel" title="اتصال" href="tel:+20 123 456 7890">📞</a>
-</div>
-
-<div class="contact-bar">
-  <div>
-    <div style="font-size:16px;font-weight:700">تواصل معنا الآن</div>
-    <div class="small">متاح 24/7</div>
-  </div>
-  <div class="phone">+20 123 456 7890</div>
-  <div><button class="btn" onclick="location.href='contact.html'">اتصل / راسل</button></div>
-</div>
-
-<!-- قبل: <div id="loginModal" class="hidden" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.5);z-index:200"> -->
-<div id="loginModal" class="hidden modal">
-  <div class="card" style="width:320px">
-    <h3>التسجيل</h3>
-    <input id="modalName" placeholder="الاسم" style="margin-top:8px" />
-    <div style="margin-top:8px"><button class="btn" onclick="doModalLogin()">تسجيل</button></div>
-  </div>
-</div>
-
-
-<script src="script.js"></script>
+<!-- Google Sign-In library -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- Main script -->
+<script src="script.js" defer></script>
 </body>
 </html>
