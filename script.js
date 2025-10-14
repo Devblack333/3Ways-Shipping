@@ -7,26 +7,26 @@ const LANG = {
   en: {
     company_name: "AllWays Shipping Company",
     nav_home: "Home", nav_about: "About", nav_services: "Services", nav_contact: "Contact",
-    hero_title: "AllWays Shipping Company", hero_lead: "Fast. Secure. Global. We deliver packages and freight across the world with reliable tracking and friendly service.",
+    hero_title: "3Ways Shipping", hero_lead: "Fast. Secure. Global. We deliver packages and freight across the world with reliable tracking and friendly service.",
     btn_services: "Our Services", btn_contact: "Contact Us",
-    why_title: "Why Choose AllWays?", why_speed: "Speed", why_speed_p: "Quick deliveries and on-time performance.",
+    why_title: "Why Choose 3Ways?", why_speed: "Speed", why_speed_p: "Quick deliveries and on-time performance.",
     why_security: "Security", why_security_p: "Insured shipping and real-time tracking.", why_global: "Global Reach", why_global_p: "Partnerships across continents for smooth delivery.",
     services_title: "Our Services", svc_air: "Air Freight", svc_air_p: "Fast international air shipping.", svc_sea: "Sea Freight", svc_sea_p: "Cost-efficient container shipping.", svc_ground: "Ground Delivery", svc_ground_p: "Local & last-mile delivery solutions.",
     comments_title: "Client Feedback", comments_lead: "Sign in with Google to post a comment. Recent comments are shown below.", btn_post: "Post Comment", btn_whatsapp: "Message on WhatsApp", btn_facebook: "Visit our Facebook",
-    contact_heading: "Contact Us", contact_info: "Phone: {phone} — Email: support@allways.example", footer_text: "© AllWays Shipping Company — All rights reserved",
-    about_title: "About AllWays Shipping Company", about_p: "We are a team of logistics professionals dedicated to safe and reliable shipments worldwide."
+    contact_heading: "Contact Us", contact_info: "Phone: {phone} — Email: support@allways.example", footer_text: "© 3Ways Shipping — All rights reserved",
+    about_title: "About 3Ways Shipping", about_p: "We are a team of logistics professionals dedicated to safe and reliable shipments worldwide."
   },
   ar: {
-    company_name: "AllWays Shipping Company",
+    company_name: "3Ways Shipping Company",
     nav_home: "الرئيسية", nav_about: "من نحن", nav_services: "خدماتنا", nav_contact: "اتصل بنا",
-    hero_title: "شركة الشحن AllWays", hero_lead: "سريع. آمن. عالمي. نوفر تتبعًا موثوقًا وخدمة ودودة لشحن الطرود والبضائع حول العالم.",
+    hero_title: "3Ways شركة شحن", hero_lead: "سريع. آمن. عالمي. نوفر تتبعًا موثوقًا وخدمة ودودة لشحن الطرود والبضائع حول العالم.",
     btn_services: "خدماتنا", btn_contact: "اتصل بنا",
-    why_title: "لماذا تختار AllWays؟", why_speed: "السرعة", why_speed_p: "توصيل سريع وموعد دقيق.",
+    why_title: "3Ways لماذا اختار", why_speed: "السرعة", why_speed_p: "توصيل سريع وموعد دقيق.",
     why_security: "الأمان", why_security_p: "تأمين الشحن وتتبع فوري.", why_global: "تغطية عالمية", why_global_p: "شراكات عبر القارات لتوصيل سلس.",
     services_title: "خدماتنا", svc_air: "الشحن الجوي", svc_air_p: "شحن جوي دولي سريع.", svc_sea: "الشحن البحري", svc_sea_p: "شحن حاويات اقتصادي.", svc_ground: "التوصيل البري", svc_ground_p: "حلول التوزيع المحلي.",
     comments_title: "آراء العملاء", comments_lead: "سجّل لتستطيع نشر تعليق. أحدث التعليقات تظهر أدناه.", btn_post: "انشر", btn_whatsapp: "مراسلة عبر واتساب", btn_facebook: "صفحتنا على فيسبوك",
-    contact_heading: "اتصل بنا", contact_info: "الهاتف: {phone} — البريد: support@allways.example", footer_text: "© AllWays Shipping Company — جميع الحقوق محفوظة",
-    about_title: "عن شركة AllWays", about_p: "نحن فريق من المختصين في الخدمات اللوجستية نعمل على شحن آمن وموثوق عبر العالم."
+    contact_heading: "اتصل بنا", contact_info: "الهاتف: {phone} — البريد: support@allways.example", footer_text: "© 3Ways Shipping Company — جميع الحقوق محفوظة",
+    about_title: "3Ways عن شركة", about_p: "نحن فريق من المختصين في الخدمات اللوجستية نعمل على شحن آمن وموثوق عبر العالم."
   }
 };
 
