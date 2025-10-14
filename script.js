@@ -5,7 +5,7 @@ const CLIENT_ID = "588835745426-47dj5a40ukn58ohqpalbgc0m385c32ub.apps.googleuser
 
 const LANG = {
   en: {
-    company_name: "AllWays Shipping Company",
+    company_name: "3Ways Shipping Company",
     nav_home: "Home", nav_about: "About", nav_services: "Services", nav_contact: "Contact",
     hero_title: "3Ways Shipping", hero_lead: "Fast. Secure. Global. We deliver packages and freight across the world with reliable tracking and friendly service.",
     btn_services: "Our Services", btn_contact: "Contact Us",
