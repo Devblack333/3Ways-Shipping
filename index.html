@@ -5,81 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AllWays Shipping Company</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>AllWays Shipping Company</h1>
-      <nav>
-        <ul>
-          <li><a href="#home">Home / الرئيسية</a></li>
-          <li><a href="#services">Services / الخدمات</a></li>
-          <li><a href="#whyus">Why Us / لماذا نحن</a></li>
-          <li><a href="#contact">Contact / تواصل معنا</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="navbar">
+    <div class="logo">AllWays <span>Shipping</span></div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="lang-btn" id="lang-toggle">عربي</button>
   </header>
 
-  <section id="home">
+  <section class="hero" id="home">
     <video autoplay muted loop id="bg-video">
-      <source src="your-video.mp4" type="video/mp4">
+      <source src="shipping.mp4" type="video/mp4">
     </video>
-    <div class="overlay">
-      <h2>Global Shipping Solutions / حلول الشحن العالمية</h2>
-      <p>Reliable, Fast, and Secure Worldwide Delivery / تسليم موثوق وسريع وآمن حول العالم</p>
-      <a href="#services" class="btn">Learn More / تعرف أكثر</a>
+    <div class="hero-text">
+      <h1 data-en="Fast & Reliable Shipping Worldwide" data-ar="شحن سريع وموثوق حول العالم">
+        Fast & Reliable Shipping Worldwide
+      </h1>
+      <p data-en="We deliver your goods safely and on time." data-ar="نقوم بتوصيل بضاعتك بأمان وفي الوقت المحدد.">
+        We deliver your goods safely and on time.
+      </p>
+      <a href="#services" class="btn" data-en="Explore Services" data-ar="اكتشف خدماتنا">Explore Services</a>
     </div>
   </section>
 
-  <section id="services" class="services-section">
-    <h2>Our Services / خدماتنا</h2>
-    <div class="service-cards">
+  <section id="services" class="section">
+    <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+    <div class="cards-container">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd" alt="Sea Freight">
-        <h3>Sea Freight / الشحن البحري</h3>
-        <p>We provide international sea transport for large-scale shipments with global coverage and competitive pricing. / نقدم خدمات النقل البحري الدولي للشحنات الكبيرة بتغطية عالمية وأسعار تنافسية.</p>
+        <img src="images/container-ship.jpg" alt="Sea Freight">
+        <h3 data-en="Sea Freight" data-ar="الشحن البحري">Sea Freight</h3>
+        <p data-en="Affordable large-scale cargo shipping with global coverage and trusted partners."
+           data-ar="شحن بحري موثوق بأسعار مناسبة لنقل البضائع الكبيرة إلى جميع أنحاء العالم."></p>
       </div>
-
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="Air Freight">
-        <h3>Air Freight / الشحن الجوي</h3>
-        <p>Fast, reliable air shipping for urgent deliveries worldwide, ensuring your cargo reaches its destination on time. / شحن جوي سريع وموثوق للتسليمات العاجلة حول العالم.</p>
+        <img src="images/air-cargo.jpg" alt="Air Freight">
+        <h3 data-en="Air Freight" data-ar="الشحن الجوي">Air Freight</h3>
+        <p data-en="Fast, secure air transport for urgent deliveries, ensuring your goods arrive safely and on schedule."
+           data-ar="شحن جوي سريع وآمن لتوصيل الطرود العاجلة بدقة وأمان."></p>
       </div>
-
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9393" alt="Land Transport">
-        <h3>Land Transport / النقل البري</h3>
-        <p>Modern trucks and logistics systems for efficient land transport across regions and countries. / شاحنات حديثة وأنظمة لوجستية فعالة للنقل البري عبر المناطق والدول.</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1607433133133-5eeb2409b69e" alt="Warehousing">
-        <h3>Warehousing / التخزين</h3>
-        <p>Secure and spacious warehouses for short and long-term storage with full inventory management. / مستودعات آمنة وواسعة للتخزين قصير وطويل الأجل مع إدارة كاملة للمخزون.</p>
+        <img src="images/truck.jpg" alt="Land Transport">
+        <h3 data-en="Land Transport" data-ar="النقل البري">Land Transport</h3>
+        <p data-en="Reliable trucking and distribution across cities with real-time tracking and safety assurance."
+           data-ar="نقل بري موثوق بين المدن مع تتبع مباشر وضمان الأمان."></p>
       </div>
     </div>
   </section>
 
-  <section id="whyus" class="why-section">
-    <h2>Why Choose Us / لماذا نحن؟</h2>
-    <div class="why-content">
-      <div class="why-text">
-        <p><strong>Experience & Trust:</strong> With years of experience in logistics, we’ve built strong partnerships across the globe. / <strong>الخبرة والثقة:</strong> لدينا سنوات من الخبرة وشراكات قوية حول العالم.</p>
-        <p><strong>24/7 Support:</strong> Our dedicated team ensures assistance anytime, anywhere. / <strong>دعم 24/7:</strong> فريقنا متواجد دائماً لتقديم المساعدة في أي وقت وأي مكان.</p>
-        <p><strong>Affordable Pricing:</strong> We provide transparent and competitive prices for all our services. / <strong>أسعار مناسبة:</strong> نقدم أسعارًا شفافة وتنافسية لجميع خدماتنا.</p>
-        <p><strong>Real-Time Tracking:</strong> Track your shipment live through our smart system. / <strong>تتبع مباشر:</strong> يمكنك تتبع شحنتك لحظة بلحظة عبر نظامنا الذكي.</p>
+  <section id="why-us" class="section light">
+    <h2 data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</h2>
+    <div class="cards-container">
+      <div class="card">
+        <img src="images/reliability.jpg" alt="Reliability">
+        <h3 data-en="Reliability" data-ar="الموثوقية">Reliability</h3>
+        <p data-en="Our proven record of safe and on-time deliveries builds long-lasting trust with clients."
+           data-ar="سجلنا المثبت في التسليم الآمن وفي الوقت المحدد يبني ثقة دائمة مع عملائنا."></p>
       </div>
-      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238" alt="Logistics Team">
+      <div class="card">
+        <img src="images/global.jpg" alt="Global Network">
+        <h3 data-en="Global Network" data-ar="شبكة عالمية">Global Network</h3>
+        <p data-en="We operate in over 100 countries, connecting businesses to global markets efficiently."
+           data-ar="نحن نعمل في أكثر من 100 دولة لربط الأعمال بالأسواق العالمية بكفاءة."></p>
+      </div>
+      <div class="card">
+        <img src="images/support.jpg" alt="24/7 Support">
+        <h3 data-en="24/7 Support" data-ar="دعم 24/7">24/7 Support</h3>
+        <p data-en="Our dedicated team is available around the clock to assist you with any inquiries."
+           data-ar="فريقنا متاح على مدار الساعة لمساعدتك في أي استفسار."></p>
+      </div>
     </div>
   </section>
 
   <footer id="contact">
-    <div class="container">
-      <h3>Contact Us / تواصل معنا</h3>
-      <p>Email: support@allwaysshipping.com | Phone: +20123456789</p>
-      <p>© 2025 AllWays Shipping Company. All rights reserved.</p>
-    </div>
+    <p data-en="© 2025 AllWays Shipping Company. All Rights Reserved."
+       data-ar="© 2025 شركة الشحن AllWays. جميع الحقوق محفوظة."></p>
   </footer>
 </body>
 </html>
