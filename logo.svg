@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="60" rx="8" fill="white" />
+  <g transform="translate(12,8)">
+    <polygon points="0,22 18,11 36,22 18,44" fill="url(#g)"/>
+    <text x="52" y="30" font-family="Poppins, Arial" font-weight="700" font-size="18" fill="#072033">ThreeWays</text>
+  </g>
+</svg>
