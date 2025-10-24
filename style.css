@@ -1,4 +1,4 @@
-/* ✅ SERVICES SECTION LAYOUT FIX */
+/* ✅ SERVICES SECTION FIX — keeps your existing structure */
 .services-section {
   padding: 80px 5%;
   background: #f9f9f9;
@@ -7,32 +7,35 @@
 
 .services-section h2 {
   color: #007bff;
-  font-size: 2em;
+  font-size: 2.2em;
   margin-bottom: 40px;
 }
 
+/* 🟦 Cards in grid that scale perfectly */
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   justify-items: center;
   align-items: stretch;
 }
 
+/* 🟦 Card style (keeps your text, images, etc.) */
 .card {
-  background: #fff;
+  background: #ffffff;
   border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
   width: 100%;
-  max-width: 350px;
+  max-width: 340px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
@@ -48,44 +51,41 @@
 }
 
 .card p {
-  flex-grow: 1;
-  font-size: 1em;
-  padding: 0 20px 25px;
   color: #333;
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 0 20px 25px;
   text-align: left;
+  flex-grow: 1;
 }
 
-/* ✅ RESPONSIVE FIXES */
-@media (max-width: 1024px) {
+/* ✅ Responsive scaling for all devices */
+@media (max-width: 1200px) {
   .service-cards {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .service-cards {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-
-  .card h3 {
-    font-size: 1.2em;
-  }
-
-  .card p {
-    font-size: 0.95em;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
-  .services-section {
-    padding: 60px 3%;
-  }
-
+@media (max-width: 600px) {
   .service-cards {
     grid-template-columns: 1fr;
   }
 
   .card {
     max-width: 100%;
+  }
+
+  .card h3 {
+    font-size: 1.1em;
+  }
+
+  .card p {
+    font-size: 0.95em;
   }
 }
