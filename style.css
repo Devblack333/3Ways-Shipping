@@ -56,11 +56,7 @@ a{text-decoration:none;color:inherit}
 .why-card img{width:100%;height:100%;object-fit:cover;filter:brightness(0.6)}
 .why-card .txt{position:absolute;inset:0;padding:16px;color:white;display:flex;flex-direction:column;justify-content:flex-end}
 
-/* comments */
-.comments-wrap{margin-top:18px}
-.comment-box{background:var(--card);padding:12px;border-radius:10px;border:1px solid #eef6ff}
-.comments-scroll{max-height:260px;overflow:auto;padding-right:8px}
-.comment{background:var(--bg);padding:10px;border-radius:8px;margin-bottom:8px;border-left:4px solid var(--blue)}
+
 
 /* contact */
 .contact-section{margin-top:28px;background:linear-gradient(180deg,#ffffff,#f4fbff);padding:18px;border-radius:12px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
@@ -129,9 +125,7 @@ html { font-size: 16px; }
 .gsi, .user-badge { min-width: 48px; display:flex; align-items:center; gap:8px; }
 .user-badge img { height:32px; width:32px; }
 
-/* comment post area */
-.comment-post { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
-#commentInput { width:100%; padding:10px; border-radius:8px; border:1px solid #e6eefc; font-family:inherit; resize:vertical; min-height:56px; }
+
 
 /* improved grid responsiveness */
 @media (max-width:1100px) {
