@@ -1,90 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AllWays Shipping Company</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThreeWays Shipping Company</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">AllWays <span>Shipping</span></div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#why-us">Why Us</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="lang-btn" id="lang-toggle">عربي</button>
+  <!-- 🌐 Navbar -->
+  <header class="header">
+    <div class="container">
+      <h1 data-i18n="company_name" class="logo">ThreeWays Shipping Company</h1>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#whyus" data-i18n="nav_why">Why Us</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch">
+        <button id="lang-en" class="lang-btn active">EN</button>
+        <button id="lang-ar" class="lang-btn">ع</button>
+      </div>
+    </div>
   </header>
 
-  <section class="hero" id="home">
-    <video autoplay muted loop id="bg-video">
-      <source src="shipping.mp4" type="video/mp4">
+  <!-- 🎥 Hero Section -->
+  <section id="home" class="hero">
+    <video id="heroVideo" autoplay muted loop playsinline>
+      <source src="your-video.mp4" type="video/mp4" />
     </video>
-    <div class="hero-text">
-      <h1 data-en="Fast & Reliable Shipping Worldwide" data-ar="شحن سريع وموثوق حول العالم">
-        Fast & Reliable Shipping Worldwide
-      </h1>
-      <p data-en="We deliver your goods safely and on time." data-ar="نقوم بتوصيل بضاعتك بأمان وفي الوقت المحدد.">
+    <div class="hero-content">
+      <h2 data-i18n="hero_title">Fast & Reliable Shipping Worldwide</h2>
+      <p data-i18n="hero_lead">
         We deliver your goods safely and on time.
       </p>
-      <a href="#services" class="btn" data-en="Explore Services" data-ar="اكتشف خدماتنا">Explore Services</a>
+      <a href="#services" class="btn" data-i18n="btn_services">Explore Services</a>
     </div>
   </section>
 
-  <section id="services" class="section">
-    <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
-    <div class="cards-container">
-      <div class="card">
-        <img src="images/container-ship.jpg" alt="Sea Freight">
-        <h3 data-en="Sea Freight" data-ar="الشحن البحري">Sea Freight</h3>
-        <p data-en="Affordable large-scale cargo shipping with global coverage and trusted partners."
-           data-ar="شحن بحري موثوق بأسعار مناسبة لنقل البضائع الكبيرة إلى جميع أنحاء العالم."></p>
+  <!-- 🚚 Services -->
+  <section id="services" class="services-section">
+    <h2 data-i18n="services_title">Our Services</h2>
+    <div class="service-cards">
+      <div class="card" data-sr>
+        <img src="https://images.unsplash.com/photo-1505839673365-e3971f8d9184" alt="Air Freight" />
+        <h3 data-i18n="svc_air">Air Freight</h3>
+        <p>
+          Our air freight service guarantees the fastest delivery for time-sensitive shipments, connecting you to major airports worldwide.
+        </p>
       </div>
-      <div class="card">
-        <img src="images/air-cargo.jpg" alt="Air Freight">
-        <h3 data-en="Air Freight" data-ar="الشحن الجوي">Air Freight</h3>
-        <p data-en="Fast, secure air transport for urgent deliveries, ensuring your goods arrive safely and on schedule."
-           data-ar="شحن جوي سريع وآمن لتوصيل الطرود العاجلة بدقة وأمان."></p>
+      <div class="card" data-sr>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Sea Freight" />
+        <h3 data-i18n="svc_sea">Sea Freight</h3>
+        <p>
+          Reliable and cost-efficient global ocean shipping solutions for containers, bulk, and large cargo across all major trade lanes.
+        </p>
       </div>
-      <div class="card">
-        <img src="images/truck.jpg" alt="Land Transport">
-        <h3 data-en="Land Transport" data-ar="النقل البري">Land Transport</h3>
-        <p data-en="Reliable trucking and distribution across cities with real-time tracking and safety assurance."
-           data-ar="نقل بري موثوق بين المدن مع تتبع مباشر وضمان الأمان."></p>
-      </div>
-    </div>
-  </section>
-
-  <section id="why-us" class="section light">
-    <h2 data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</h2>
-    <div class="cards-container">
-      <div class="card">
-        <img src="images/reliability.jpg" alt="Reliability">
-        <h3 data-en="Reliability" data-ar="الموثوقية">Reliability</h3>
-        <p data-en="Our proven record of safe and on-time deliveries builds long-lasting trust with clients."
-           data-ar="سجلنا المثبت في التسليم الآمن وفي الوقت المحدد يبني ثقة دائمة مع عملائنا."></p>
-      </div>
-      <div class="card">
-        <img src="images/global.jpg" alt="Global Network">
-        <h3 data-en="Global Network" data-ar="شبكة عالمية">Global Network</h3>
-        <p data-en="We operate in over 100 countries, connecting businesses to global markets efficiently."
-           data-ar="نحن نعمل في أكثر من 100 دولة لربط الأعمال بالأسواق العالمية بكفاءة."></p>
-      </div>
-      <div class="card">
-        <img src="images/support.jpg" alt="24/7 Support">
-        <h3 data-en="24/7 Support" data-ar="دعم 24/7">24/7 Support</h3>
-        <p data-en="Our dedicated team is available around the clock to assist you with any inquiries."
-           data-ar="فريقنا متاح على مدار الساعة لمساعدتك في أي استفسار."></p>
+      <div class="card" data-sr>
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Ground Transport" />
+        <h3 data-i18n="svc_ground">Ground & Road Transport</h3>
+        <p>
+          We provide domestic and regional road transportation with real-time tracking and competitive pricing for all goods types.
+        </p>
       </div>
     </div>
   </section>
 
-  <footer id="contact">
-    <p data-en="© 2025 AllWays Shipping Company. All Rights Reserved."
-       data-ar="© 2025 شركة الشحن AllWays. جميع الحقوق محفوظة."></p>
+  <!-- 🌍 Why Us -->
+  <section id="whyus" class="whyus-section">
+    <h2 data-i18n="nav_why">Why Choose Us</h2>
+    <div class="whyus-content">
+      <p>
+        With over 10 years in logistics, ThreeWays Shipping provides tailored solutions backed by cutting-edge technology, ensuring timely delivery and transparent communication. Our dedicated team offers 24/7 customer support and real-time shipment tracking.
+      </p>
+    </div>
+  </section>
+
+  <!-- 📞 Contact -->
+  <section id="contact" class="contact-section">
+    <h2 data-i18n="contact_heading">Contact Us</h2>
+    <p data-i18n="contact_info">Phone: +20 123 456 7890 — Email: support@threeways.example</p>
+  </section>
+
+  <footer>
+    <p>© 2025 ThreeWays Shipping. All rights reserved.</p>
   </footer>
 </body>
 </html>
