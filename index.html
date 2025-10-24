@@ -1,93 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ThreeWays Shipping Company</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 🌐 Navbar -->
   <header class="header">
-    <div class="container">
-      <h1 data-i18n="company_name" class="logo">ThreeWays Shipping Company</h1>
-      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <nav class="nav">
-        <ul>
-          <li><a href="#home" data-i18n="nav_home">Home</a></li>
-          <li><a href="#services" data-i18n="nav_services">Services</a></li>
-          <li><a href="#whyus" data-i18n="nav_why">Why Us</a></li>
-          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="lang-switch">
-        <button id="lang-en" class="lang-btn active">EN</button>
-        <button id="lang-ar" class="lang-btn">ع</button>
-      </div>
+    <div class="logo">ThreeWays Shipping</div>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="nav">
+      <ul>
+        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch">
+      <button id="lang-en" class="lang-btn">EN</button>
+      <button id="lang-ar" class="lang-btn">AR</button>
     </div>
   </header>
 
-  <!-- 🎥 Hero Section -->
-  <section id="home" class="hero">
+  <section class="hero" id="home">
     <video id="heroVideo" autoplay muted loop playsinline>
-      <source src="your-video.mp4" type="video/mp4" />
+      <source src="https://cdn.coverr.co/videos/coverr-a-container-ship-at-sea-6924/1080p.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <h2 data-i18n="hero_title">Fast & Reliable Shipping Worldwide</h2>
-      <p data-i18n="hero_lead">
-        We deliver your goods safely and on time.
-      </p>
+      <h1 data-i18n="hero_title">Fast & Reliable Shipping Worldwide</h1>
+      <p data-i18n="hero_lead">We deliver your goods safely and on time.</p>
       <a href="#services" class="btn" data-i18n="btn_services">Explore Services</a>
     </div>
   </section>
 
-  <!-- 🚚 Services -->
-  <section id="services" class="services-section">
+  <section class="services-section" id="services">
     <h2 data-i18n="services_title">Our Services</h2>
     <div class="service-cards">
       <div class="card" data-sr>
-        <img src="https://images.unsplash.com/photo-1505839673365-e3971f8d9184" alt="Air Freight" />
-        <h3 data-i18n="svc_air">Air Freight</h3>
-        <p>
-          Our air freight service guarantees the fastest delivery for time-sensitive shipments, connecting you to major airports worldwide.
-        </p>
-      </div>
-      <div class="card" data-sr>
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Sea Freight" />
+        <img src="https://i.imgur.com/VHplhFS.jpg" alt="Sea Freight">
         <h3 data-i18n="svc_sea">Sea Freight</h3>
-        <p>
-          Reliable and cost-efficient global ocean shipping solutions for containers, bulk, and large cargo across all major trade lanes.
-        </p>
+        <p>Safe and cost-effective shipping across global seas.</p>
       </div>
       <div class="card" data-sr>
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Ground Transport" />
-        <h3 data-i18n="svc_ground">Ground & Road Transport</h3>
-        <p>
-          We provide domestic and regional road transportation with real-time tracking and competitive pricing for all goods types.
-        </p>
+        <img src="https://i.imgur.com/MvFvC8a.jpg" alt="Air Freight">
+        <h3 data-i18n="svc_air">Air Freight</h3>
+        <p>Speedy global deliveries with reliable tracking.</p>
+      </div>
+      <div class="card" data-sr>
+        <img src="https://i.imgur.com/fL7QOgm.jpg" alt="Ground Transport">
+        <h3 data-i18n="svc_ground">Ground Transport</h3>
+        <p>Efficient domestic and regional logistics.</p>
       </div>
     </div>
   </section>
 
-  <!-- 🌍 Why Us -->
-  <section id="whyus" class="whyus-section">
-    <h2 data-i18n="nav_why">Why Choose Us</h2>
-    <div class="whyus-content">
-      <p>
-        With over 10 years in logistics, ThreeWays Shipping provides tailored solutions backed by cutting-edge technology, ensuring timely delivery and transparent communication. Our dedicated team offers 24/7 customer support and real-time shipment tracking.
-      </p>
-    </div>
-  </section>
-
-  <!-- 📞 Contact -->
-  <section id="contact" class="contact-section">
-    <h2 data-i18n="contact_heading">Contact Us</h2>
+  <footer class="footer" id="contact">
     <p data-i18n="contact_info">Phone: +20 123 456 7890 — Email: support@threeways.example</p>
-  </section>
-
-  <footer>
-    <p>© 2025 ThreeWays Shipping. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
