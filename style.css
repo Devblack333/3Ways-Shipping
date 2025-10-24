@@ -1,188 +1,91 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #ffffff;
-  color: #333;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-header {
-  background: #007bff;
-  color: white;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: auto;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-#home {
-  position: relative;
-  height: 90vh;
-  overflow: hidden;
-}
-
-#bg-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.overlay h2 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.overlay p {
-  font-size: 1.1em;
-  max-width: 700px;
-}
-
-.btn {
-  margin-top: 20px;
-  background: #ffffff;
-  color: #007bff;
-  padding: 10px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #007bff;
-  color: white;
-}
-
+/* ✅ SERVICES SECTION LAYOUT FIX */
 .services-section {
-  padding: 60px 5%;
-  text-align: center;
+  padding: 80px 5%;
   background: #f9f9f9;
+  text-align: center;
 }
 
 .services-section h2 {
   color: #007bff;
-  margin-bottom: 40px;
   font-size: 2em;
+  margin-bottom: 40px;
 }
 
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: stretch;
 }
 
 .card {
-  background: white;
+  background: #fff;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
 .card h3 {
   color: #007bff;
-  margin: 15px 0 10px;
+  margin: 20px 0 10px;
+  font-size: 1.3em;
 }
 
 .card p {
-  padding: 0 15px 20px;
-  font-size: 0.95em;
-}
-
-.why-section {
-  padding: 60px 5%;
-  background: white;
-}
-
-.why-section h2 {
-  text-align: center;
-  color: #007bff;
-  margin-bottom: 30px;
-}
-
-.why-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 30px;
-}
-
-.why-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.why-text p {
-  margin-bottom: 15px;
+  flex-grow: 1;
   font-size: 1em;
+  padding: 0 20px 25px;
+  color: #333;
+  text-align: left;
 }
 
-.why-content img {
-  flex: 1;
-  width: 100%;
-  max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* ✅ RESPONSIVE FIXES */
+@media (max-width: 1024px) {
+  .service-cards {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
 }
 
-footer {
-  background: #007bff;
-  color: white;
-  text-align: center;
-  padding: 25px 10px;
-  font-size: 0.95em;
+@media (max-width: 768px) {
+  .service-cards {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .card h3 {
+    font-size: 1.2em;
+  }
+
+  .card p {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 60px 3%;
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    max-width: 100%;
+  }
 }
