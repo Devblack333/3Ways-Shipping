@@ -1,190 +1,85 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>ThreeWays Shipping — Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AllWays Shipping Company</title>
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="ThreeWays — Fast. Secure. Global. Reliable shipping and freight with transparent tracking and professional logistics services.">
 </head>
 <body>
-<header class="header" role="banner">
-  <div class="wrap">
-    <div class="logo" aria-label="ThreeWays logo">
-      <img src="logo.svg" alt="ThreeWays logo">
-      <div class="text" data-i18n="company_name">ThreeWays Shipping</div>
-    </div>
-
-    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="hamburger"></span>
-    </button>
-
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#home" data-i18n="nav_home">Home</a>
-      <a href="#about" data-i18n="nav_about">About</a>
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#why" data-i18n="nav_why">Why Us</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
-    </nav>
-
-    <div class="lang-toggle" role="navigation" aria-label="Language switch">
-      <button class="lang-btn" id="lang-en">EN</button>
-      <button class="lang-btn" id="lang-ar">AR</button>
-    </div>
-
-    <div class="header-actions">
-      <div class="contact-pill" aria-hidden="false">
-        <span class="muted" data-i18n="call_us">Call us:</span> <strong id="phone">+20 123 456 7890</strong>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main class="container" id="pageContent">
-  <!-- HERO / HOME -->
-  <section id="home" class="hero">
-    <video id="heroVideo" class="hero-video" autoplay muted loop playsinline crossorigin="anonymous">
-      <!-- Kept the video as requested -->
-      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-
-    <div class="hero-inner">
-      <div class="hero-left" data-sr>
-        <h1 data-i18n="hero_title">ThreeWays Shipping</h1>
-        <p class="lead" data-i18n="hero_lead">Fast. Secure. Global. We deliver packages and freight worldwide with transparent tracking, competitive pricing, and dedicated customer support.</p>
-        <div class="hero-cta">
-          <a class="btn" href="#services" data-i18n="btn_services">Explore Services</a>
-          <a class="btn secondary" href="#contact" data-i18n="btn_contact">Request a Quote</a>
-        </div>
-
-        <ul class="hero-features" aria-hidden="false">
-          <li><strong>Guaranteed Pickup</strong><span class="muted"> — Flexible collection windows and same-day pickup in select cities.</span></li>
-          <li><strong>Customs Assistance</strong><span class="muted"> — Documentation and clearance support to avoid delays.</span></li>
+  <header>
+    <div class="container">
+      <h1>AllWays Shipping Company</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home / الرئيسية</a></li>
+          <li><a href="#services">Services / الخدمات</a></li>
+          <li><a href="#whyus">Why Us / لماذا نحن</a></li>
+          <li><a href="#contact">Contact / تواصل معنا</a></li>
         </ul>
-      </div>
-      <aside class="hero-right" data-sr>
-        <div class="card hero-quote">
-          <h3 data-i18n="instant_quote">Instant Quote</h3>
-          <p class="muted">Estimate shipping costs for air, sea or ground. Transparent fees — no surprises.</p>
-          <a class="btn" href="#contact" data-i18n="btn_get_quote">Get a Quote</a>
-        </div>
-      </aside>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home">
+    <video autoplay muted loop id="bg-video">
+      <source src="your-video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h2>Global Shipping Solutions / حلول الشحن العالمية</h2>
+      <p>Reliable, Fast, and Secure Worldwide Delivery / تسليم موثوق وسريع وآمن حول العالم</p>
+      <a href="#services" class="btn">Learn More / تعرف أكثر</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="card" data-sr>
-    <h2 data-i18n="about_title">About ThreeWays Shipping</h2>
-    <p class="muted" data-i18n="about_p">ThreeWays is a full-service logistics provider combining global carrier agreements, proprietary routing algorithms, and hands-on customs expertise to make international shipping predictable and simple.</p>
-    <p>We design transit plans tailored to your priorities — speed, cost, or reliability — and provide a single point of contact for complex shipments, including temperature-controlled cargo and oversized freight.</p>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="card" data-sr>
-    <h2 data-i18n="services_title">Our Services</h2>
-    <div class="grid services-grid">
-      <div class="card svc">
-        <img src="https://images.unsplash.com/photo-1542317854-9d4a9d7a3b1b?auto=format&fit=crop&w=1400&q=80" alt="Air freight">
-        <h3 data-i18n="svc_air">Air Freight</h3>
-        <p>Door-to-door and airport-to-airport solutions for urgent and time-sensitive cargo. We work with major airlines and consolidators, offer priority handling, customs pre-clearance, and cargo insurance options to protect high-value goods during transit.</p>
-      </div>
-
-      <div class="card svc">
-        <img src="https://images.unsplash.com/photo-1505842465776-3d6cc1e8a6f1?auto=format&fit=crop&w=1400&q=80" alt="Sea freight">
-        <h3 data-i18n="svc_sea">Sea Freight</h3>
-        <p>Comprehensive ocean freight services including FCL (full container load), LCL (less-than-container), door pickups, and port-to-door delivery. We negotiate competitive carrier rates, provide container tracking, and handle marine insurance and cargo consolidation.</p>
-      </div>
-
-      <div class="card svc">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80" alt="Ground delivery">
-        <h3 data-i18n="svc_ground">Ground & Road Transport</h3>
-        <p>Regional distribution, palletized freight and last-mile delivery with GPS-tracked vehicles and scheduled routes. Our ground network supports multi-modal handoffs to bridge sea/air shipments to final destinations efficiently.</p>
-      </div>
-
-      <div class="card svc">
-        <img src="https://images.unsplash.com/photo-1562581969-9c5b1c3c9b5f?auto=format&fit=crop&w=1400&q=80" alt="Warehousing and fulfillment">
-        <h3>Warehousing & Fulfillment</h3>
-        <p>Secure warehousing, inventory management, kitting, and order fulfillment services. We support short-term storage, pick-and-pack workflows, and EDI/API integrations for automated fulfillment pipelines.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section id="why" class="card why-section" data-sr>
-    <h2 data-i18n="why_title">Why Choose ThreeWays?</h2>
-    <div class="why-us">
-      <div class="why-card">
-        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80" alt="Global network">
-        <div class="txt">
-          <h3>Global Network</h3>
-          <p>Strategic partnerships with carriers and local agents in key markets ensure reliable routing and reduced delays at origin and destination ports.</p>
-        </div>
-      </div>
-
-      <div class="why-card">
-        <img src="https://images.unsplash.com/photo-1515165562835-c9b9b8c9f0b0?auto=format&fit=crop&w=1200&q=80" alt="Tracking">
-        <div class="txt">
-          <h3>Real-time Tracking</h3>
-          <p>End-to-end shipment visibility with proactive notifications. Our platform aggregates carrier updates so you always know where your cargo is.</p>
-        </div>
-      </div>
-
-      <div class="why-card">
-        <img src="https://images.unsplash.com/photo-1530041681772-509b6b0b2b8b?auto=format&fit=crop&w=1200&q=80" alt="Security">
-        <div class="txt">
-          <h3>Security & Compliance</h3>
-          <p>Strict handling procedures, tamper-evident packaging guidance, and customs compliance checks reduce risk and regulatory delays.</p>
-        </div>
-      </div>
-
-      <div class="why-card">
-        <img src="https://images.unsplash.com/photo-1520975912078-3b3f3c7f8f3d?auto=format&fit=crop&w=1200&q=80" alt="Support">
-        <div class="txt">
-          <h3>24/7 Support</h3>
-          <p>Dedicated account managers and 24/7 support for critical shipments, ensuring fast response and operational continuity.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="card comments-wrap" id="testimonials" data-sr>
-    <h2>Customer Stories</h2>
-    <p class="muted">Selected feedback from companies that trust ThreeWays for their international shipping needs.</p>
-
-    <div class="grid" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+  <section id="services" class="services-section">
+    <h2>Our Services / خدماتنا</h2>
+    <div class="service-cards">
       <div class="card">
-        <strong>Ahmed M. — E-commerce Manager</strong>
-        <p class="muted" style="margin-top:8px">"ThreeWays reduced our international transit time by 30% and their customs team saved us days on several shipments."</p>
+        <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd" alt="Sea Freight">
+        <h3>Sea Freight / الشحن البحري</h3>
+        <p>We provide international sea transport for large-scale shipments with global coverage and competitive pricing. / نقدم خدمات النقل البحري الدولي للشحنات الكبيرة بتغطية عالمية وأسعار تنافسية.</p>
       </div>
+
       <div class="card">
-        <strong>Sara L. — Startup Founder</strong>
-        <p class="muted" style="margin-top:8px">"Reliable pricing, great packaging guidance, and smooth warehousing integration — highly recommended."</p>
+        <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="Air Freight">
+        <h3>Air Freight / الشحن الجوي</h3>
+        <p>Fast, reliable air shipping for urgent deliveries worldwide, ensuring your cargo reaches its destination on time. / شحن جوي سريع وموثوق للتسليمات العاجلة حول العالم.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1566577739112-5180d4bf9393" alt="Land Transport">
+        <h3>Land Transport / النقل البري</h3>
+        <p>Modern trucks and logistics systems for efficient land transport across regions and countries. / شاحنات حديثة وأنظمة لوجستية فعالة للنقل البري عبر المناطق والدول.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607433133133-5eeb2409b69e" alt="Warehousing">
+        <h3>Warehousing / التخزين</h3>
+        <p>Secure and spacious warehouses for short and long-term storage with full inventory management. / مستودعات آمنة وواسعة للتخزين قصير وطويل الأجل مع إدارة كاملة للمخزون.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="card contact-section" data-sr>
-    <div class="left">
-      <h2 data-i18n="contact_heading">Contact Us</h2>
-      <p class="muted" data-i18n="contact_info">Phone: <strong id="contactPhone">+20 123 456 7890</strong> — Email: <a href="mailto:support@threeways.example">support@threeways.example</a></p>
-      <p>Office hours: Sun–Thu, 08:00–18:00 (EET). For urgent bookings call our operations desk; for quotes use the Request a Quote button.</p>
-    </div>
-    <div class="right">
-      <a class="btn" href="https://wa.me/201234567890" target="_blank" rel="noopener" data-i18n="btn_whatsapp">Message on WhatsApp</a>
-      <a class="btn secondary" href="https://facebook.com" target="_blank" rel="noopener" data-i18n="btn_facebook">Visit our Facebook</a>
+  <section id="whyus" class="why-section">
+    <h2>Why Choose Us / لماذا نحن؟</h2>
+    <div class="why-content">
+      <div class="why-text">
+        <p><strong>Experience & Trust:</strong> With years of experience in logistics, we’ve built strong partnerships across the globe. / <strong>الخبرة والثقة:</strong> لدينا سنوات من الخبرة وشراكات قوية حول العالم.</p>
+        <p><strong>24/7 Support:</strong> Our dedicated team ensures assistance anytime, anywhere. / <strong>دعم 24/7:</strong> فريقنا متواجد دائماً لتقديم المساعدة في أي وقت وأي مكان.</p>
+        <p><strong>Affordable Pricing:</strong> We provide transparent and competitive prices for all our services. / <strong>أسعار مناسبة:</strong> نقدم أسعارًا شفافة وتنافسية لجميع خدماتنا.</p>
+        <p><strong>Real-Time Tracking:</strong> Track your shipment live through our smart system. / <strong>تتبع مباشر:</strong> يمكنك تتبع شحنتك لحظة بلحظة عبر نظامنا الذكي.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238" alt="Logistics Team">
     </div>
   </section>
-</main>
 
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div>© ThreeWays Shipping Company — All rights reserved</div>
-  </div>
-</footer>
-
-<script src="script.js" defer></script>
+  <footer id="contact">
+    <div class="container">
+      <h3>Contact Us / تواصل معنا</h3>
+      <p>Email: support@allwaysshipping.com | Phone: +20123456789</p>
+      <p>© 2025 AllWays Shipping Company. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
