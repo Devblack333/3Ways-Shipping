@@ -87,12 +87,7 @@ function updateUserUI(user) {
   } catch (e) { console.warn(e); }
 }
 
-/* signOut (original) */
-function signOut() {
-  localStorage.removeItem('aw_user');
-  $id('userBadge') && $id('userBadge').classList.add('hidden');
-  $id('gsiButton') && $id('gsiButton').classList.remove('hidden');
-}
+
 
 /* parse/escape */
 function escapeHtml(s) { return String(s).replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c])); }
@@ -180,18 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) { console.warn('init error', e); }
 });
 
-/* ---------- Google Sign-In initialization (kept original with minor safety) ---------- */
-window.onload = function() {
-  try {
-    if (window.google && google.accounts && google.accounts.id) {
-      google.accounts.id.initialize({ client_id: CLIENT_ID, callback: handleCredentialResponse });
-      const gsiEl = document.getElementById('gsiButton');
-      if (gsiEl) google.accounts.id.renderButton(gsiEl, { theme: 'outline', size: 'medium', text: 'signin_with' });
-    }
-    const saved = localStorage.getItem('aw_user');
-    if (saved) updateUserUI(JSON.parse(saved));
-  } catch (e) { console.warn('GSI init error', e); }
-};
 
 /* ---------- misc: hero video safe controls ---------- */
 (function heroVideoEnhancements(){
