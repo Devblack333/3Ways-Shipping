@@ -1,65 +1,1334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThreeWays Shipping Company</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThreeWays Shipping</title>
+  <meta id="meta-description" name="description" content="ThreeWays — Fast. Secure. Global. Reliable shipping and freight with real tracking and friendly service.">
+
+  <!-- =============================== INTEGRATED STYLES =============================== -->
+  <style>
+    /* Base Styles */
+    :root {
+        --primary: #0356b6;
+        --secondary: #25d366; /* WhatsApp Green */
+        --accent: #f9a825;
+        --text-color: #333;
+        --muted-color: #666;
+        --bg-light: #f4f7fa;
+        --card-bg: #fff;
+        --border-color: #eee;
+        --font-family-en: 'Arial', sans-serif;
+        --font-family-ar: 'Amiri', 'Traditional Arabic', serif;
+    }
+
+    /* Global Reset and Body */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: var(--font-family-en);
+        color: var(--text-color);
+        line-height: 1.6;
+        background-color: var(--bg-light);
+    }
+
+    h1, h2, h3 {
+        margin-bottom: 0.8em;
+        line-height: 1.2;
+    }
+    p { margin-bottom: 1em; }
+    .muted { color: var(--muted-color); }
+    .card {
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+        background-color: var(--primary);
+        color: #fff;
+        padding: 15px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--accent);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    .nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .nav a:hover, .nav a.active {
+        background-color: rgba(255,255,255,0.2);
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Call Pill */
+    .call-pill {
+        background-color: var(--accent);
+        color: var(--text-color);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: normal;
+        display: none; /* Hidden by default on desktop, shown in JS */
+        align-items: center;
+        gap: 5px;
+    }
+    .call-pill strong { font-weight: bold; }
+
+    /* Language Switch */
+    .lang-switch {
+        display: flex;
+        border: 1px solid rgba(255,255,255,0.4);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .lang-option {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: none;
+    }
+    .lang-label {
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        min-width: 40px;
+        text-align: center;
+    }
+    .lang-option:checked + .lang-label {
+        background-color: var(--accent);
+        color: var(--primary);
+        font-weight: bold;
+    }
+    .lang-label:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+
+    /* Main Content */
+    main {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    section {
+        padding: 40px 0;
+        min-height: 80vh;
+    }
+    #about { background-color: #fff; }
+    #services { background-color: var(--bg-light); }
+    #contact { background-color: #fff; }
+
+    /* Hero Section */
+    .hero {
+        background: var(--primary) url('https://i.postimg.cc/tJTStDSN/speed-17221155.webp') no-repeat center center / cover;
+        color: #fff;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 50px 0;
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        max-width: 800px;
+    }
+    .hero-content h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        margin-bottom: 0.5em;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+        margin-bottom: 2em;
+        font-weight: 300;
+    }
+    .hero-cta {
+        display: flex;
+        gap: 20px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        text-align: center;
+        border: 2px solid transparent;
+    }
+    .btn-primary {
+        background-color: var(--accent);
+        color: var(--text-color);
+    }
+    .btn-primary:hover {
+        background-color: transparent;
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+    .btn-secondary {
+        background-color: var(--secondary);
+        color: #fff;
+    }
+    .btn-secondary:hover {
+        background-color: transparent;
+        border-color: var(--secondary);
+        color: var(--secondary);
+    }
+
+    /* Section Content */
+    .section-title {
+        text-align: center;
+        color: var(--primary);
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--accent);
+        border-radius: 2px;
+    }
+
+    /* Why Us / Service Cards */
+    .why-us, .services-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .why-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        text-align: center;
+        padding: 30px;
+    }
+    .why-card h3 {
+        color: var(--primary);
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    .why-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--accent);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .service-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        padding: 0;
+        overflow: hidden;
+        text-align: left;
+    }
+    .service-card .content {
+        padding: 20px;
+    }
+    .service-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.5s;
+    }
+    .service-card:hover img {
+        transform: scale(1.05);
+    }
+    .service-card h3 {
+        color: var(--primary);
+        margin-top: 0;
+        font-size: 1.4rem;
+    }
+
+    /* Gallery */
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    .gallery-item {
+        width: 250px;
+        max-width: 90%;
+        cursor: pointer;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+    .gallery-item:hover {
+        transform: scale(1.02);
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Lightbox */
+    .gallery-lightbox {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      padding: 20px;
+    }
+    .gallery-lightbox.open { display: flex; }
+    .lb-content { max-width: 90vw; max-height: 90vh; position: relative; }
+    .lb-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .lb-close, .lb-prev, .lb-next {
+      position: absolute;
+      top: 10px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      line-height: 1;
+      transition: background 0.3s;
+    }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: rgba(0,0,0,0.8); }
+    .lb-close { top: 10px; right: 10px; font-size: 1.5rem; }
+    .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); }
+    .lb-prev { left: 8px; }
+    .lb-next { right: 8px; }
+    .gallery-msg { margin-top: 10px; font-size: 0.95em; }
+
+
+    /* Footer */
+    .footer {
+        background-color: var(--text-color);
+        color: #fff;
+        padding: 30px 0;
+        font-size: 0.9rem;
+    }
+    .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .footer-col {
+        flex: 1 1 200px;
+    }
+    .footer-col h4 {
+        color: var(--accent);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .footer-col p, .footer-col a {
+        color: #ccc;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+    }
+    .footer-col a:hover {
+        color: var(--accent);
+    }
+    .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #ccc;
+    }
+
+    /* Video container (for hero section) */
+    .hero-video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .hero-video {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+
+    /* ================= CHATBOT STYLES ================= */
+    .chat-fab {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1100;
+        transition: transform 0.3s, background-color 0.3s;
+    }
+    .chat-fab:hover {
+        background-color: #004599; /* Darker primary */
+        transform: scale(1.05);
+    }
+    .chat-fab svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .chat-window {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 380px;
+        height: 500px;
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        z-index: 1100;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(0.5) translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transform-origin: bottom right;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .chat-window.open {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .chat-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .chat-header button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 5px;
+    }
+    .chat-header button svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chat-messages {
+        flex-grow: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background-color: var(--bg-light);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        scroll-behavior: smooth;
+    }
+    .chat-message {
+        max-width: 80%;
+        padding: 10px 15px;
+        border-radius: 18px;
+        word-wrap: break-word;
+        line-height: 1.4;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .chat-message.user {
+        background-color: var(--accent);
+        color: var(--text-color);
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+    }
+    .chat-message.assistant {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        align-self: flex-start;
+        border: 1px solid var(--border-color);
+        border-bottom-left-radius: 4px;
+    }
+    .chat-message.loading {
+        background-color: #e0e0e0;
+        font-style: italic;
+    }
+    .chat-message.error {
+        background-color: #fdd;
+        color: #c00;
+        border: 1px solid #c00;
+    }
+
+    .chat-input-area {
+        display: flex;
+        padding: 10px 15px;
+        border-top: 1px solid var(--border-color);
+        flex-shrink: 0;
+    }
+    #chatInput {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        margin-right: 10px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+    #chatInput:focus {
+        outline: none;
+        border-color: var(--primary);
+    }
+    #sendMessage {
+        background-color: var(--secondary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s, opacity 0.3s;
+    }
+    #sendMessage:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    #sendMessage svg {
+        width: 20px;
+        height: 20px;
+        transform: translateX(2px);
+    }
+
+    /* ================= ARABIC STYLES ================= */
+    [dir="rtl"] {
+        font-family: var(--font-family-ar);
+        text-align: right;
+    }
+    [dir="rtl"] .logo { text-shadow: -1px 1px 2px rgba(0,0,0,0.2); }
+    [dir="rtl"] .nav a { margin-left: 0; margin-right: 20px; }
+    [dir="rtl"] .hero-content { text-align: right; }
+    [dir="rtl"] .hero-cta { flex-direction: row-reverse; }
+    [dir="rtl"] .section-title::after { left: auto; right: 50%; transform: translateX(50%); }
+    [dir="rtl"] .footer-col { text-align: right; }
+    [dir="rtl"] .chat-fab { right: auto; left: 20px; }
+    [dir="rtl"] .chat-window { right: auto; left: 20px; transform-origin: bottom left; transform: scale(0.5) translateX(-100%); }
+    [dir="rtl"] .chat-window.open { transform: scale(1) translateX(0); }
+    [dir="rtl"] #chatInput { margin-right: 0; margin-left: 10px; }
+    [dir="rtl"] .chat-message.user { align-self: flex-start; border-bottom-left-radius: 4px; border-bottom-right-radius: 18px; }
+    [dir="rtl"] .chat-message.assistant { align-self: flex-end; border-bottom-right-radius: 4px; border-bottom-left-radius: 18px; }
+    [dir="rtl"] #sendMessage svg { transform: translateX(-2px); }
+
+
+    /* ================= MOBILE MEDIA QUERIES ================= */
+    @media (max-width: 900px) {
+        .header .container { flex-direction: column; gap: 10px; }
+        .nav { order: 1; margin: 10px 0; }
+        .header-right { order: 2; width: 100%; justify-content: space-between; }
+        .call-pill { display: none !important; } /* Hide call pill on small mobile */
+
+        .hero { min-height: 40vh; padding: 15px; }
+        .hero-content h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+        .hero-content p { font-size: clamp(0.9rem, 4vw, 1rem); }
+        .hero-cta { flex-direction: column; gap: 10px; }
+
+        .why-us { flex-direction: column; align-items: center; }
+        .why-card { flex: 1 1 90%; max-width: 90%; }
+
+        .gallery-item { width: 75%; max-width: 75%; }
+        .gallery-item img { height: auto; }
+
+        .footer-grid { flex-direction: column; text-align: center; }
+        .footer-col { flex-basis: 100%; }
+
+        /* Fullscreen Chat on Mobile */
+        .chat-window {
+            width: 100vw;
+            height: 100vh;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            border-radius: 0;
+            transform: scale(1) translateY(100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .chat-window.open {
+            transform: scale(1) translateY(0);
+        }
+        [dir="rtl"] .chat-window {
+            right: 0;
+            left: 0;
+            transform: scale(1) translateY(100%);
+        }
+    }
+  </style>
 </head>
 <body>
+
   <header class="header">
-    <div class="logo">ThreeWays Shipping</div>
-    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
-    <nav class="nav">
-      <ul>
-        <li><a href="#home" data-i18n="nav_home">Home</a></li>
-        <li><a href="#about" data-i18n="nav_about">About</a></li>
-        <li><a href="#services" data-i18n="nav_services">Services</a></li>
-        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="lang-switch">
-      <button id="lang-en" class="lang-btn">EN</button>
-      <button id="lang-ar" class="lang-btn">AR</button>
+    <div class="container">
+        <div class="logo">ThreeWays</div>
+
+        <nav class="nav" role="navigation">
+            <a href="#home" class="nav-link active" data-i18n="nav_home">Home</a>
+            <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+            <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+            <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="call-pill" style="display: flex;">
+                <span data-i18n="call_us">Call us:</span>
+                <strong id="phone">+20 111 301 2341</strong>
+            </div>
+
+            <div class="lang-switch" role="radiogroup" aria-label="Language selection">
+                <input type="radio" id="lang-en" name="language" value="en" class="lang-option" checked>
+                <label for="lang-en" class="lang-label">EN</label>
+                <input type="radio" id="lang-ar" name="language" value="ar" class="lang-option">
+                <label for="lang-ar" class="lang-label">عربي</label>
+            </div>
+        </div>
     </div>
   </header>
 
-  <section class="hero" id="home">
-    <video id="heroVideo" autoplay muted loop playsinline>
-      <source src="https://cdn.coverr.co/videos/coverr-a-container-ship-at-sea-6924/1080p.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <h1 data-i18n="hero_title">Fast & Reliable Shipping Worldwide</h1>
-      <p data-i18n="hero_lead">We deliver your goods safely and on time.</p>
-      <a href="#services" class="btn" data-i18n="btn_services">Explore Services</a>
-    </div>
-  </section>
+  <main id="pageContent">
+    <!-- Content will be injected by JavaScript's applyLanguage -->
+  </main>
 
-  <section class="services-section" id="services">
-    <h2 data-i18n="services_title">Our Services</h2>
-    <div class="service-cards">
-      <div class="card" data-sr>
-        <img src="https://i.imgur.com/VHplhFS.jpg" alt="Sea Freight">
-        <h3 data-i18n="svc_sea">Sea Freight</h3>
-        <p>Safe and cost-effective shipping across global seas.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 data-i18n="footer_company">Company</h4>
+          <p data-i18n="footer_desc">Fast. Secure. Global. Reliable shipping and freight with real tracking and friendly service.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_links">Quick Links</h4>
+          <a href="#home" data-i18n="nav_home">Home</a>
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#services" data-i18n="nav_services">Services</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_contact">Contact Info</h4>
+          <p data-i18n="call_us">Call us:</p>
+          <p>+20 111 301 2341</p>
+          <p>info@threeways.com</p>
+          <p data-i18n="footer_address">123 Shipping Lane, Cairo, Egypt</p>
+        </div>
       </div>
-      <div class="card" data-sr>
-        <img src="https://i.imgur.com/MvFvC8a.jpg" alt="Air Freight">
-        <h3 data-i18n="svc_air">Air Freight</h3>
-        <p>Speedy global deliveries with reliable tracking.</p>
-      </div>
-      <div class="card" data-sr>
-        <img src="https://i.imgur.com/fL7QOgm.jpg" alt="Ground Transport">
-        <h3 data-i18n="svc_ground">Ground Transport</h3>
-        <p>Efficient domestic and regional logistics.</p>
+      <div class="footer-bottom" data-i18n="footer_copyright">
+        &copy; 2025 ThreeWays. All rights reserved.
       </div>
     </div>
-  </section>
-
-  <footer class="footer" id="contact">
-    <p data-i18n="contact_info">Phone: +20 123 456 7890 — Email: support@threeways.example</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Lightbox (for gallery images) -->
+  <div class="gallery-lightbox" id="lbOverlay">
+    <button class="lb-close" id="lbClose">×</button>
+    <div class="lb-content">
+      <img src="" alt="Gallery Image" class="lb-img" id="lbImg">
+    </div>
+    <button class="lb-prev" id="lbPrev">&#10094;</button>
+    <button class="lb-next" id="lbNext">&#10095;</button>
+  </div>
+
+  <!-- =============================== CHATBOT UI =============================== -->
+  <button id="chatFab" class="chat-fab" aria-label="Open Chat Assistant">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+  </button>
+
+  <div id="chatWindow" class="chat-window">
+      <div class="chat-header">
+          <span data-i18n="chat_title">ThreeWays Assistant</span>
+          <button id="closeChat" aria-label="Close Chat">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+      </div>
+      <div id="chatMessages" class="chat-messages">
+          <!-- Messages will go here -->
+      </div>
+      <div class="chat-input-area">
+          <input type="text" id="chatInput" placeholder="Type your message..." data-i18n-placeholder="chat_placeholder">
+          <button id="sendMessage" aria-label="Send Message">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+      </div>
+  </div>
+
+
+  <!-- =============================== INTEGRATED JAVASCRIPT =============================== -->
+  <script type="module">
+    // --- Existing Script Variables ---
+    const SITE_PHONE = "+20 111 301 2341";
+    const TRANSPARENT_PIXEL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    const Why1 = "https://i.postimg.cc/tJTStDSN/speed-17221155.webp";
+    const Why2 = "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80";
+    const Why3 = "https://i.postimg.cc/L8jzdZn5/world-map-with-global-technology-social-connection-network-with-nodes-links-vector-illustration-1284.avif";
+    const ser1 = "https://i.postimg.cc/sfk7JwNC/Adobe-Stock-41064239-Preview.jpg";
+    const ser2 = "https://i.postimg.cc/52w3zZ4Z/passenger-airliner-flight-17934723.webp";
+    const ser3 = "https://i.postimg.cc/C5L9fgn4/premium-photo-1-394982613.jpg";
+    const ser4 = "https://i.postimg.cc/vT4xPthK/shipping-containers-terminal-30911739.jpg";
+    const ser5 = "https://i.postimg.cc/851z8sF8/truck-driver-17934724.webp";
+    const videoUrl = "Hailuo_Video_make a video for a global ship_449364612819861506.mp4";
+
+    let currentLang = 'en';
+    const langKey = 'threeways_lang';
+
+    let i18n = {
+      // --- Existing i18n keys ---
+      "nav_home": { "en": "Home", "ar": "الرئيسية" },
+      "nav_about": { "en": "About", "ar": "من نحن" },
+      "nav_services": { "en": "Services", "ar": "خدماتنا" },
+      "nav_contact": { "en": "Contact", "ar": "اتصل بنا" },
+      "call_us": { "en": "Call us:", "ar": "اتصل بنا:" },
+
+      "hero_h1": { "en": "Global Shipping, Simplified.", "ar": "الشحن العالمي، ببساطة." },
+      "hero_p": { "en": "Fast. Secure. Global. Reliable freight and logistics services you can trust.", "ar": "سريع. آمن. عالمي. خدمات شحن ولوجستيات موثوقة يمكنك الاعتماد عليها." },
+      "btn_track": { "en": "Track Shipment", "ar": "تتبع شحنتك" },
+      "btn_quote": { "en": "Get a Quote", "ar": "اطلب عرض سعر" },
+
+      "section_about_h2": { "en": "Why Choose ThreeWays?", "ar": "لماذا تختار ثري وايز؟" },
+      "about_p": { "en": "We are committed to providing the best logistics solutions tailored to your needs. With a focus on speed, security, and global reach, ThreeWays is your reliable partner.", "ar": "نحن ملتزمون بتقديم أفضل الحلول اللوجستية المصممة لتلبية احتياجاتك. مع التركيز على السرعة والأمان والانتشار العالمي، ثري وايز هو شريكك الموثوق." },
+
+      "why_1_h3": { "en": "Speed & Efficiency", "ar": "السرعة والكفاءة" },
+      "why_1_p": { "en": "We ensure your cargo reaches its destination on time, every time.", "ar": "نحن نضمن وصول شحنتك إلى وجهتها في الوقت المحدد، وفي كل مرة." },
+      "why_2_h3": { "en": "Security & Trust", "ar": "الأمان والثقة" },
+      "why_2_p": { "en": "Your goods are handled with the utmost care and secured throughout the journey.", "ar": "يتم التعامل مع بضائعك بعناية فائقة وتأمينها طوال الرحلة." },
+      "why_3_h3": { "en": "Global Reach", "ar": "انتشار عالمي" },
+      "why_3_p": { "en": "Connecting every corner of the world through our vast network.", "ar": "ربط كل زاوية من زوايا العالم من خلال شبكتنا الواسعة." },
+
+      "section_services_h2": { "en": "Our Reliable Services", "ar": "خدماتنا الموثوقة" },
+      "ser_1_h3": { "en": "Ocean Freight", "ar": "الشحن البحري" },
+      "ser_1_p": { "en": "Cost-effective solutions for large volume shipments across the globe.", "ar": "حلول فعالة من حيث التكلفة للشحنات ذات الأحجام الكبيرة عبر العالم." },
+      "ser_2_h3": { "en": "Air Cargo", "ar": "الشحن الجوي" },
+      "ser_2_p": { "en": "The fastest option for urgent or high-value goods requiring rapid transit.", "ar": "الخيار الأسرع للسلع العاجلة أو ذات القيمة العالية التي تتطلب نقلاً سريعاً." },
+      "ser_3_h3": { "en": "Land Transport", "ar": "النقل البري" },
+      "ser_3_p": { "en": "Reliable road transport for domestic and regional deliveries.", "ar": "نقل بري موثوق للتسليم المحلي والإقليمي." },
+      "ser_4_h3": { "en": "Customs Clearance", "ar": "التخليص الجمركي" },
+      "ser_4_p": { "en": "Hassle-free customs processing to ensure smooth delivery.", "ar": "تخليص جمركي بدون متاعب لضمان التسليم السلس." },
+      "ser_5_h3": { "en": "Warehousing & Distribution", "ar": "التخزين والتوزيع" },
+      "ser_5_p": { "en": "Secure storage and efficient final-mile distribution services.", "ar": "خدمات تخزين آمنة وتوزيع فعال للميل الأخير." },
+
+      "section_gallery_h2": { "en": "Our Work in Action", "ar": "أعمالنا قيد التنفيذ" },
+      "gallery_msg": { "en": "Click any image to view it full size.", "ar": "انقر على أي صورة لمشاهدتها بالحجم الكامل." },
+
+      "section_contact_h2": { "en": "Get in Touch", "ar": "تواصل معنا" },
+      "contact_p": { "en": "Ready to move your freight? Contact us today for reliable service and competitive quotes.", "ar": "هل أنت مستعد لنقل شحنتك؟ اتصل بنا اليوم للحصول على خدمة موثوقة وعروض أسعار تنافسية." },
+      "contact_email": { "en": "Email us at info@threeways.com", "ar": "راسلنا عبر info@threeways.com" },
+      "contact_whatsapp": { "en": "Chat with us on WhatsApp", "ar": "تحدث معنا عبر واتساب" },
+      "contact_phone": { "en": "Call us at " + SITE_PHONE, "ar": "اتصل بنا على " + SITE_PHONE },
+
+      "footer_company": { "en": "Company", "ar": "الشركة" },
+      "footer_desc": { "en": "Fast. Secure. Global. Reliable shipping and freight with real tracking and friendly service.", "ar": "سريع. آمن. عالمي. شحن وبضائع موثوقة مع تتبع حقيقي وخدمة ودية." },
+      "footer_links": { "en": "Quick Links", "ar": "روابط سريعة" },
+      "footer_contact": { "en": "Contact Info", "ar": "معلومات الاتصال" },
+      "footer_address": { "en": "123 Shipping Lane, Cairo, Egypt", "ar": "123 شارع الشحن، القاهرة، مصر" },
+      "footer_copyright": { "en": "© 2025 ThreeWays. All rights reserved.", "ar": "© 2025 ثري وايز. جميع الحقوق محفوظة." },
+
+      // --- New Chatbot i18n keys ---
+      "chat_title": { "en": "ThreeWays Assistant", "ar": "مساعد ثري وايز" },
+      "chat_placeholder": { "en": "Ask about shipping, services, or contact info...", "ar": "اسأل عن الشحن، الخدمات، أو معلومات الاتصال..." },
+      "chat_welcome": { "en": "Hello! I'm your ThreeWays shipping assistant. How can I help you today?", "ar": "أهلاً! أنا مساعد الشحن الخاص بك من ثري وايز. كيف يمكنني مساعدتك اليوم؟" },
+      "chat_loading": { "en": "ThreeWays is thinking...", "ar": "ثري وايز يفكر..." },
+      "chat_error": { "en": "Sorry, I ran into an error. Please try again later.", "ar": "عذراً، حدث خطأ. الرجاء المحاولة مرة أخرى لاحقاً." },
+      "chat_context": { "en": "I am a helpful assistant for ThreeWays, a global shipping company. My purpose is to answer questions about the company's services (Ocean Freight, Air Cargo, Land Transport, Customs Clearance, Warehousing & Distribution), contact information (+20 111 301 2341, info@threeways.com), and why customers should choose ThreeWays (Speed, Security, Global Reach). Respond concisely and helpfully. The current language is English.", "ar": "أنا مساعد مفيد لشركة ثري وايز، وهي شركة شحن عالمية. هدفي هو الإجابة على أسئلة حول خدمات الشركة (الشحن البحري، الشحن الجوي، النقل البري، التخليص الجمركي، التخزين والتوزيع)، ومعلومات الاتصال (+20 111 301 2341، info@threeways.com)، ولماذا يجب على العملاء اختيار ثري وايز (السرعة، الأمان، الانتشار العالمي). أجب بإيجاز ومساعدة. اللغة الحالية هي العربية." }
+    };
+
+    // --- Core Language/Content Functions ---
+
+    function getContentHTML(lang) {
+      const isRTL = lang === 'ar';
+      document.body.dir = isRTL ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+
+      const whatsappLink = `https://wa.me/${SITE_PHONE.replace(/\D/g, '')}?text=${isRTL ? 'مرحباً، أرغب في الاستفسار عن خدمات الشحن.' : 'Hi, I would like to inquire about shipping services.'}`;
+
+      return `
+        <!-- Home Section -->
+        <section id="home" class="hero">
+          <div class="hero-video-container">
+            <video autoplay loop muted class="hero-video" id="heroVideo" poster="${TRANSPARENT_PIXEL}">
+              <source src="${videoUrl}" type="video/mp4">
+              <img src="${TRANSPARENT_PIXEL}" onerror="this.parentNode.parentNode.style.backgroundImage='url(https://images.unsplash.com/photo-1583344840828-59c258d927a3?auto=format&fit=crop&w=1200&q=80)'" style="display:none;">
+            </video>
+          </div>
+          <div class="container hero-content">
+            <h1 data-i18n="hero_h1">${i18n.hero_h1[lang]}</h1>
+            <p data-i18n="hero_p">${i18n.hero_p[lang]}</p>
+            <div class="hero-cta">
+              <a href="#" class="btn btn-primary" data-i18n="btn_track">${i18n.btn_track[lang]}</a>
+              <a href="#contact" class="btn btn-secondary" data-i18n="btn_quote">${i18n.btn_quote[lang]}</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+          <div class="container">
+            <h2 class="section-title" data-i18n="section_about_h2">${i18n.section_about_h2[lang]}</h2>
+            <p class="muted">${i18n.about_p[lang]}</p>
+            <div class="why-us">
+              <div class="card why-card">
+                <img src="${Why1}" alt="Speed & Efficiency" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" style="border-color: var(--secondary);">
+                <h3 data-i18n="why_1_h3">${i18n.why_1_h3[lang]}</h3>
+                <p>${i18n.why_1_p[lang]}</p>
+              </div>
+              <div class="card why-card">
+                <img src="${Why2}" alt="Security & Trust" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" style="border-color: var(--accent);">
+                <h3 data-i18n="why_2_h3">${i18n.why_2_h3[lang]}</h3>
+                <p>${i18n.why_2_p[lang]}</p>
+              </div>
+              <div class="card why-card">
+                <img src="${Why3}" alt="Global Reach" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" style="border-color: var(--primary);">
+                <h3 data-i18n="why_3_h3">${i18n.why_3_h3[lang]}</h3>
+                <p>${i18n.why_3_p[lang]}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+          <div class="container">
+            <h2 class="section-title" data-i18n="section_services_h2">${i18n.section_services_h2[lang]}</h2>
+            <div class="services-grid">
+              <div class="card service-card">
+                <img src="${ser1}" alt="Ocean Freight" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" />
+                <div class="content">
+                  <h3 data-i18n="ser_1_h3">${i18n.ser_1_h3[lang]}</h3>
+                  <p>${i18n.ser_1_p[lang]}</p>
+                </div>
+              </div>
+              <div class="card service-card">
+                <img src="${ser2}" alt="Air Cargo" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" />
+                <div class="content">
+                  <h3 data-i18n="ser_2_h3">${i18n.ser_2_h3[lang]}</h3>
+                  <p>${i18n.ser_2_p[lang]}</p>
+                </div>
+              </div>
+              <div class="card service-card">
+                <img src="${ser3}" alt="Land Transport" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" />
+                <div class="content">
+                  <h3 data-i18n="ser_3_h3">${i18n.ser_3_h3[lang]}</h3>
+                  <p>${i18n.ser_3_p[lang]}</p>
+                </div>
+              </div>
+              <div class="card service-card">
+                <img src="${ser4}" alt="Customs Clearance" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" />
+                <div class="content">
+                  <h3 data-i18n="ser_4_h3">${i18n.ser_4_h3[lang]}</h3>
+                  <p>${i18n.ser_4_p[lang]}</p>
+                </div>
+              </div>
+              <div class="card service-card">
+                <img src="${ser5}" alt="Warehousing & Distribution" loading="lazy" onerror="this.src='${TRANSPARENT_PIXEL}';" />
+                <div class="content">
+                  <h3 data-i18n="ser_5_h3">${i18n.ser_5_h3[lang]}</h3>
+                  <p>${i18n.ser_5_p[lang]}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+          <div class="container">
+            <h2 class="section-title" data-i18n="section_gallery_h2">${i18n.section_gallery_h2[lang]}</h2>
+            <div class="gallery" id="galleryContainer">
+                <!-- Images injected here by loadGalleryImages -->
+            </div>
+            <p class="muted gallery-msg" style="text-align: center;">${i18n.gallery_msg[lang]}</p>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+          <div class="container">
+            <h2 class="section-title" data-i18n="section_contact_h2">${i18n.section_contact_h2[lang]}</h2>
+            <p class="muted" style="text-align: center; max-width: 600px; margin: 0 auto 30px;">${i18n.contact_p[lang]}</p>
+            <div class="why-us">
+              <div class="card why-card">
+                <h3 style="color: var(--primary);">Email</h3>
+                <p data-i18n="contact_email">${i18n.contact_email[lang]}</p>
+                <a href="mailto:info@threeways.com" class="btn btn-primary" style="margin-top: 10px;">Send Email</a>
+              </div>
+              <div class="card why-card" style="border: 2px solid var(--secondary); box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);">
+                <h3 style="color: var(--secondary);">WhatsApp</h3>
+                <p data-i18n="contact_whatsapp">${i18n.contact_whatsapp[lang]}</p>
+                <a href="${whatsappLink}" target="_blank" class="btn btn-secondary" style="margin-top: 10px; background-color: var(--secondary); color: white;">Start Chat</a>
+              </div>
+              <div class="card why-card">
+                <h3 style="color: var(--accent);">Phone</h3>
+                <p data-i18n="contact_phone">${i18n.contact_phone[lang]}</p>
+                <a href="tel:${SITE_PHONE}" class="btn btn-primary" style="margin-top: 10px; background-color: var(--accent); color: var(--text-color);">Call Now</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function applyLanguage(lang) {
+      if (!i18n.hero_h1[lang]) {
+        console.error(`Language ${lang} not supported, defaulting to 'en'`);
+        lang = 'en';
+      }
+      currentLang = lang;
+      localStorage.setItem(langKey, lang);
+
+      // Update main content
+      const pageContent = document.getElementById('pageContent');
+      if (pageContent) {
+        pageContent.innerHTML = getContentHTML(lang);
+      }
+
+      // Update static elements outside pageContent (like header)
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[key] && i18n[key][lang]) {
+          el.textContent = i18n[key][lang];
+        }
+      });
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[key] && i18n[key][lang]) {
+          el.placeholder = i18n[key][lang];
+        }
+      });
+
+      // Update chat context for LLM (critical for bilingual responses)
+      if (i18n.chat_context) {
+          const enText = "I am a helpful assistant for ThreeWays, a global shipping company. My purpose is to answer questions about the company's services (Ocean Freight, Air Cargo, Land Transport, Customs Clearance, Warehousing & Distribution), contact information (+20 111 301 2341, info@threeways.com), and why customers should choose ThreeWays (Speed, Security, Global Reach). Respond concisely and helpfully. The current language is English.";
+          const arText = "أنا مساعد مفيد لشركة ثري وايز، وهي شركة شحن عالمية. هدفي هو الإجابة على أسئلة حول خدمات الشركة (الشحن البحري، الشحن الجوي، النقل البري، التخليص الجمركي، التخزين والتوزيع)، ومعلومات الاتصال (+20 111 301 2341، info@threeways.com)، ولماذا يجب على العملاء اختيار ثري وايز (السرعة، الأمان، الانتشار العالمي). أجب بإيجاز ومساعدة. اللغة الحالية هي العربية.";
+          i18n.chat_context['en'] = enText;
+          i18n.chat_context['ar'] = arText;
+      }
+
+
+      // Set direction and font family
+      document.body.dir = isRTL ? 'rtl' : 'ltr';
+      document.body.style.fontFamily = isRTL ? 'var(--font-family-ar)' : 'var(--font-family-en)';
+
+      // Set active language radio button
+      const radio = document.getElementById(`lang-${lang}`);
+      if (radio) radio.checked = true;
+
+      // Handle video/gallery (will be handled by MutationObserver, but run once)
+      fixHeroVideo();
+      injectGalleryShell();
+      loadGalleryImages();
+
+      // Display initial welcome message in chat window on language switch
+      if (chatMessages.classList.contains('has-welcome')) {
+          displayMessage(i18n.chat_welcome[currentLang], 'assistant');
+      }
+
+      // Scroll to the top of the content
+      window.scrollTo(0, 0);
+    }
+
+    // --- Dynamic Content Helpers ---
+
+    function fixHeroVideo() {
+      const video = document.getElementById('heroVideo');
+      if (video) {
+        // Simple fix for video sizing in CSS is now handled by .hero-video
+      }
+    }
+
+    const GalleryImages = [
+      "https://i.postimg.cc/rsxY58dK/shipping-containers.jpg",
+      "https://i.postimg.cc/85z1zXG1/air-cargo-plane.jpg",
+      "https://i.postimg.cc/50t0r3Xv/ocean-freight-ship.jpg",
+      "https://i.postimg.cc/vT4xPthK/shipping-containers-terminal-30911739.jpg",
+      "https://i.postimg.cc/52w3zZ4Z/passenger-airliner-flight-17934723.webp",
+      "https://i.postimg.cc/C5L9fgn4/premium-photo-1-394982613.jpg",
+      "https://i.postimg.cc/rsxY58dK/shipping-containers.jpg",
+      "https://i.postimg.cc/85z1zXG1/air-cargo-plane.jpg",
+    ];
+
+    function injectGalleryShell() {
+      const galleryContainer = document.getElementById('galleryContainer');
+      if (galleryContainer && galleryContainer.children.length === 0) {
+        galleryContainer.innerHTML = GalleryImages.map((src, index) => `
+          <div class="gallery-item" onclick="openLightbox(GalleryImages, ${index})">
+            <img src="${TRANSPARENT_PIXEL}" data-src="${src}" alt="Shipping operation image ${index + 1}" loading="lazy">
+          </div>
+        `).join('');
+      }
+    }
+
+    function loadGalleryImages() {
+      // Lazy load logic for gallery images
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute('data-src');
+            if (src) {
+              img.src = src;
+              img.removeAttribute('data-src');
+              observer.unobserve(img);
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.gallery-item img[data-src]').forEach(img => {
+        observer.observe(img);
+      });
+    }
+
+    function createNavLink() {
+      // Logic to set nav links as active on scroll (omitted for brevity but kept in original)
+    }
+
+    // --- Lightbox Functions ---
+    let lbOverlay, lbImg, lbList = [], currentIndex = 0;
+
+    function buildLightbox() {
+      lbOverlay = document.getElementById('lbOverlay');
+      lbImg = document.getElementById('lbImg');
+      if (!lbOverlay) return; // Should not happen with the new HTML structure
+
+      // Attach handlers only once
+      document.getElementById('lbClose').onclick = closeLightbox;
+      document.getElementById('lbPrev').onclick = showPrev;
+      document.getElementById('lbNext').onclick = showNext;
+      lbOverlay.addEventListener('click', (e) => {
+        if (e.target === lbOverlay) closeLightbox();
+      });
+    }
+
+    window.openLightbox = function(list, idx) {
+      buildLightbox();
+      lbList = list.slice();
+      currentIndex = idx;
+      lbImg.src = lbList[currentIndex];
+      lbOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    window.closeLightbox = function() {
+      if (!lbOverlay) return;
+      lbOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+    function showPrev() {
+      if (!lbList.length) return;
+      currentIndex = (currentIndex - 1 + lbList.length) % lbList.length;
+      lbImg.src = lbList[currentIndex];
+    }
+    function showNext() {
+      if (!lbList.length) return;
+      currentIndex = (currentIndex + 1) % lbList.length;
+      lbImg.src = lbList[currentIndex];
+    }
+
+
+    // --- Initialization and Event Listeners ---
+    function attachListeners() {
+      // Language switch listeners
+      document.querySelectorAll('.lang-option').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          applyLanguage(e.target.value);
+        });
+      });
+
+      // Initial load based on localStorage or default
+      const storedLang = localStorage.getItem(langKey) || 'en';
+      applyLanguage(storedLang);
+
+      // Lightbox setup
+      buildLightbox();
+
+      // MutationObserver to fix video/gallery after content injection
+      const pc = document.getElementById('pageContent');
+      if (pc) {
+          const mo = new MutationObserver((list) => {
+            fixHeroVideo();
+            injectGalleryShell();
+            loadGalleryImages();
+            buildLightbox(); // Re-ensure handlers are attached if content is replaced
+          });
+          mo.observe(pc, { childList: true, subtree: true });
+      }
+
+      // --- Chatbot Event Listeners ---
+      document.getElementById('chatFab').addEventListener('click', toggleChat);
+      document.getElementById('closeChat').addEventListener('click', toggleChat);
+      document.getElementById('sendMessage').addEventListener('click', sendMessageHandler);
+      document.getElementById('chatInput').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+              sendMessageHandler();
+          }
+      });
+      // Initial welcome message (must be done after language is set)
+      setTimeout(() => {
+          if (!chatMessages.classList.contains('has-welcome')) {
+              displayMessage(i18n.chat_welcome[currentLang], 'assistant');
+              chatMessages.classList.add('has-welcome');
+          }
+      }, 100);
+    }
+
+    window.onload = attachListeners;
+
+
+    // =============================== CHATBOT IMPLEMENTATION ===============================
+
+    const chatWindow = document.getElementById('chatWindow');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendMessageButton = document.getElementById('sendMessage');
+    const LLM_MODEL = 'gemini-2.5-flash-preview-09-2025';
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${LLM_MODEL}:generateContent?key=`;
+
+    // Global variable to store chat history (for context)
+    let chatHistory = [];
+
+    function toggleChat() {
+        chatWindow.classList.toggle('open');
+        if (chatWindow.classList.contains('open')) {
+            chatInput.focus();
+            scrollToBottom();
+            // Clear history and restart if opened for the first time or if required
+            if (chatHistory.length === 0) {
+                 displayMessage(i18n.chat_welcome[currentLang], 'assistant', true);
+            }
+        }
+    }
+
+    function displayMessage(text, sender, isWelcome = false) {
+        // If it's the welcome message and history is not empty, skip.
+        if (isWelcome && chatHistory.length > 0) return;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('chat-message', sender);
+        msgDiv.innerHTML = text.replace(/\n/g, '<br>'); // Simple newline formatting
+        chatMessages.appendChild(msgDiv);
+
+        if (sender !== 'system') {
+            const role = sender === 'user' ? 'user' : 'model';
+            // Only add user messages and successful model responses to history
+            if (!isWelcome || chatHistory.length === 0) {
+                 chatHistory.push({ role: role, parts: [{ text: text }] });
+            }
+        }
+
+        scrollToBottom();
+        return msgDiv;
+    }
+
+    function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function getAssistantResponse(prompt) {
+        const apiKey = typeof __api_key !== 'undefined' ? __api_key : "";
+        const apiUrlWithKey = `${API_URL}${apiKey}`;
+
+        // Get the system instruction based on the current language
+        const systemInstructionText = currentLang === 'ar' ? i18n.chat_context.ar : i18n.chat_context.en;
+
+        const fullHistory = [
+            ...chatHistory,
+            { role: "user", parts: [{ text: prompt }] }
+        ];
+
+        const payload = {
+            contents: fullHistory,
+            systemInstruction: {
+                parts: [{ text: systemInstructionText }]
+            },
+            tools: [{ "google_search": {} }],
+            config: {
+                // Ensure model is instructed to respond in the correct language
+                language: currentLang
+            }
+        };
+
+        let response;
+        let retries = 0;
+        const maxRetries = 5;
+        let delay = 1000;
+
+        while (retries < maxRetries) {
+            try {
+                response = await fetch(apiUrlWithKey, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.status === 429) {
+                    throw new Error('Rate limit exceeded');
+                }
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.statusText}`);
+                }
+                return await response.json();
+
+            } catch (error) {
+                if (retries === maxRetries - 1) {
+                    console.error("Gemini API call failed after max retries:", error);
+                    throw new Error("Failed to get response from assistant.");
+                }
+
+                if (error.message.includes('Rate limit')) {
+                    retries++;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // Exponential backoff
+                } else {
+                    // For other errors, don't retry, just fail fast.
+                    console.error("Gemini API non-retryable error:", error);
+                    throw error;
+                }
+            }
+        }
+    }
+
+    async function sendMessageHandler() {
+        const userText = chatInput.value.trim();
+        if (!userText) return;
+
+        // 1. Display user message
+        displayMessage(userText, 'user');
+        chatInput.value = '';
+        chatInput.disabled = true;
+        sendMessageButton.disabled = true;
+
+        // 2. Display loading message
+        const loadingMessage = displayMessage(i18n.chat_loading[currentLang], 'assistant loading');
+        let responseText = i18n.chat_error[currentLang];
+
+        try {
+            // 3. Get response from Gemini
+            const result = await getAssistantResponse(userText);
+            const candidate = result.candidates?.[0];
+
+            if (candidate && candidate.content?.parts?.[0]?.text) {
+                responseText = candidate.content.parts[0].text;
+                loadingMessage.classList.remove('loading');
+                loadingMessage.classList.add('assistant');
+                loadingMessage.textContent = responseText;
+
+                // 4. Update history with the successful model response
+                chatHistory.pop(); // Remove the temporary user message added in getAssistantResponse
+                chatHistory.push({ role: "user", parts: [{ text: userText }] });
+                chatHistory.push({ role: "model", parts: [{ text: responseText }] });
+
+                // 5. Check for grounding/citations (optional but good practice)
+                const groundingMetadata = candidate.groundingMetadata;
+                if (groundingMetadata && groundingMetadata.groundingAttributions && groundingMetadata.groundingAttributions.length > 0) {
+                    let sourcesHtml = '<div style="margin-top: 5px; font-size: 0.75em; color: var(--muted-color);">';
+                    groundingMetadata.groundingAttributions.forEach((attribution, index) => {
+                        if (attribution.web?.uri) {
+                            sourcesHtml += `[<a href="${attribution.web.uri}" target="_blank" style="color: inherit; text-decoration: underline;">Source ${index + 1}</a>]`;
+                        }
+                    });
+                    sourcesHtml += '</div>';
+                    loadingMessage.innerHTML += sourcesHtml;
+                }
+
+            } else {
+                throw new Error("Received empty response from API.");
+            }
+
+        } catch (error) {
+            console.error(error);
+            loadingMessage.classList.remove('loading');
+            loadingMessage.classList.add('assistant', 'error');
+            loadingMessage.textContent = responseText;
+        } finally {
+            // 6. Re-enable input
+            chatInput.disabled = false;
+            sendMessageButton.disabled = false;
+            chatInput.focus();
+            scrollToBottom();
+        }
+    }
+
+  </script>
 </body>
 </html>
